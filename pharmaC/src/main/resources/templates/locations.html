@@ -56,7 +56,7 @@
 
 <div class="col-md-4">
   </div>
-
+<a th:href="@{/pharmacy}" >go to pharmacy </a>
   <div class="col-md-4">
 <form class="signUpForm" th:action = "@{/location}" th:object = "${pharmacylocation}" method="POST">
 
@@ -76,7 +76,6 @@
      
           
     </div>
-
     <div class="form-group">
           <label for="Pharmacy name">Kebele</label>
           <input type="text" class="form-control" th:field="*{kebele}"/>

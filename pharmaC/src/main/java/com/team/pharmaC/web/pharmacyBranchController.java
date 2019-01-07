@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.team.pharmaC.PharmacBranch;
 import com.team.pharmaC.Pharmacy;
-import com.team.pharmaC.data.PharmacyLocationRepository;
+import com.team.pharmaC.data.PharmacyBranchRepository;
 import com.team.pharmaC.data.PharmacyRepository;
 
 @Controller
-@RequestMapping("/location")
+@RequestMapping
 @SessionAttributes("pharmacy")
 public class pharmacyBranchController {
 	
-	private PharmacyLocationRepository rep;
+	private PharmacyBranchRepository rep;
 	private PharmacyRepository pharmaRepo;
 	@Autowired
-	public pharmacyBranchController(PharmacyLocationRepository rep,PharmacyRepository repo) {
+	public pharmacyBranchController(PharmacyBranchRepository rep,PharmacyRepository repo) {
 		this.rep=rep;
 		this.pharmaRepo=repo;
 	}
@@ -40,13 +40,13 @@ public class pharmacyBranchController {
 		return new Pharmacy();
 	}
 	
-	@GetMapping
+	@GetMapping("/location")
 	public String locForm(Model model) { 
 		
 		  return "locations";    
 	}
 	
-	@PostMapping
+	@PostMapping("/location")
 	public String proccessForm(@Valid @ModelAttribute("pharmacylocation") PharmacBranch pharmacyloc,  Errors errors, Pharmacy pharmacy) { //, @ModelAttribute Pharmacy pharmacy
 		
 		if(errors.hasErrors()) {
@@ -54,6 +54,6 @@ public class pharmacyBranchController {
 		}
 	    pharmacy.addLocation(pharmacyloc);
 		this.rep.save(pharmacyloc);
-		return "pharmacy";    
+		return "locations";    
 	}
 }
