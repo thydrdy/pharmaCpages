@@ -8,14 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-		<link rel="stylesheet"  href="../css/style.css" type="text/css">	
-		<link rel="stylesheet" href="../css/parallexstyle.css"  type="text/css" >
+
 
 	</head>
 	
-	<script src="../js/jquery-1.10.2.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	
 	
 <body class="signUpPage">
 
@@ -72,24 +69,7 @@
      
     </div>
 
-    <div class="form-group">
-          <label for="Pharmacy name">Sub City</label>
-          <input type="text" class="form-control" id="pharmacyName" th:field="*{subCity}"/>
-           <span class="text-danger"
-      		th:if="${#fields.hasErrors('subCity')}"
-      		th:errors="*{subCity}">Name Error</span>
-     
-          
-    </div>
 
-    <div class="form-group">
-          <label for="Pharmacy name">Kebele</label>
-          <input type="text" class="form-control" id="pharmacyName" th:field="*{kebele}"/>
-           <span class="text-danger"
-      		th:if="${#fields.hasErrors('kebele')}"
-      		th:errors="*{kebele}">Name Error</span>
-     
-    </div>
 
     <div class="form-group">
           <label for="Pharmacy name">Branch No. *optional</label>
@@ -112,14 +92,7 @@
     </div>
 
 
-    <div class="form-group">
-          <label for="Pharmacy name">Official Phone Number</label>
-          <input type="tel" class="form-control" id="pharmacyName" th:field="*{officialPhoneNo}"/>
-           <span class="text-danger"
-      		th:if="${#fields.hasErrors('officialPhoneNo')}"
-      		th:errors="*{officialPhoneNo}">Name Error</span>
-     
-    </div>
+  
 
     <div class="form-group">
           <label for="Pharmacy name">Password</label>

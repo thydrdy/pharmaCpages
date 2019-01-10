@@ -8,11 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-
+	
 
 	</head>
 	
-	
+
 	
 <body class="signUpPage">
 
@@ -58,58 +58,45 @@
   </div>
 
   <div class="col-md-4">
-<form class="signUpForm" action="#" th:action = "@{/pharmacy}" th:object = "${pharmacy}" method="POST">
+<form class="signUpForm" th:action = "@{/location}" th:object = "${pharmacylocation}" method="POST">
 
     <div class="form-group">
-        <label for="Pharmacy name">Pharmacy Name</label>
-        <input type="text" class="form-control" id="pharmacyName" th:field="*{pharmacyName}"/>
-         <span class="text-danger"
-      		th:if="${#fields.hasErrors('pharmacyName')}"
-      		th:errors="*{pharmacyName}">Name Error</span>
+        <label for="Pharmacy name">Branch Name</label>
+        <input type="text" class="form-control" th:field="*{branchName}"/><br>
+         <div th:if="${#fields.hasErrors('branchName')}" th:errors="*{branchName}">Name Error</div>
      
     </div>
 
-
-
     <div class="form-group">
-          <label for="Pharmacy name">Branch No. *optional</label>
-          <input type="number" class="form-control" id="pharmacyName" />
-    </div>
-
-    <div class="form-group">
-          <label for="Pharmacy name">Official email</label>
-          <input type="email" class="form-control" id="pharmacyName"th:field="*{officialEmail}"/>
+          <label for="Pharmacy name">Sub City</label>
+          <input type="text" class="form-control"  th:field="*{subCity}"/>
            <span class="text-danger"
-      		th:if="${#fields.hasErrors('officialEmail')}"
-      		th:errors="*{officialEmail}">Name Error</span>
+      		th:if="${#fields.hasErrors('subCity')}"
+      		th:errors="*{subCity}">Name Error</span>
      
+          
     </div>
 
     <div class="form-group">
-          <label for="Pharmacy name">Official Website *Optional</label>
-          <input type="text" class="form-control" id="pharmacyName" />
-     
-    </div>
-
-
-  
-
-    <div class="form-group">
-          <label for="Pharmacy name">Password</label>
-          <input type="password" class="form-control" id="pharmacyName" th:field="*{password}">
+          <label for="Pharmacy name">Kebele</label>
+          <input type="text" class="form-control" th:field="*{kebele}"/>
            <span class="text-danger"
-      		th:if="${#fields.hasErrors('password')}"
-      		th:errors="*{password}">Name Error</span>
+      		th:if="${#fields.hasErrors('kebele')}"
+      		th:errors="*{kebele}">Name Error</span>
      
     </div>
+
+
     <div class="form-group">
-          <label for="Pharmacy name">Re write your password</label>
-          <input type="password" class="form-control" id="pharmacyName" th:field="*{rePassword}"/>
+          <label for="Pharmacy name">Official Phone Number</label>
+          <input type="tel" class="form-control"  th:field="*{officialPhoneNo}"/>
            <span class="text-danger"
-      		th:if="${#fields.hasErrors('rePassword')}"
-      		th:errors="*{rePassword}">Name Error</span>
+      		th:if="${#fields.hasErrors('officialPhoneNo')}"
+      		th:errors="*{officialPhoneNo}">Name Error</span>
      
     </div>
+
+    
 
 
     <div class="checkbox">

@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:com.team.pharmaC.PharmaCapplication</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
