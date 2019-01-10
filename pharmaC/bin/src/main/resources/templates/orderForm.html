@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Taco Cloud</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    
+  </head>
+
+  <body>
+  <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <h1>Order your taco creations!</h1>
+  </a>
+</nav>
+ <div class="container">
+    <form method="POST" th:action="@{/orders}" th:object="${order}">
+    
+      
+      
+      <img th:src="@{/images/TacoCloud.png}"/>
+      <a th:href="@{/design}" id="another">Design another taco</a><br/>
+
+       <div th:if="${#fields.hasErrors()}">
+       <span class="text-danger">
+       Please correct the problems below and resubmit
+       </span>
+       </div>
+       
+      <h3>Deliver my taco masterpieces to...</h3>
+      <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Name: </label>
+      <input type="text" th:field="*{name}"/>
+      <span class="text-danger"
+      		th:if="${#fields.hasErrors('name')}"
+      		th:errors="*{name}">Name Error</span>
+      </div>
+      
+      <div class="form-group row">
+      <label for="street" class="col-sm-2 col-form-label">Street address: </label>
+      <input type="text" th:field="*{street}"/>
+      <span class="text-danger"
+      		th:if="${#fields.hasErrors('street')}"
+      		th:errors="*{street}">Street Error</span>
+      </div>
+      
+	  <div class="form-group row">
+      <label for="city" class="col-sm-2 col-form-label">City: </label>
+      <input type="text" th:field="*{city}"/>
+      <span class="text-danger"
+      		th:if="${#fields.hasErrors('city')}"
+      		th:errors="*{city}">City Error</span>
+      </div>
+      
+	  <div class="form-group row">
+      <label for="state" class="col-sm-2 col-form-label">State: </label>
+      <input type="text" th:field="*{state}"/>
+      <span class="text-danger"
+      		th:if="${#fields.hasErrors('state')}"
+      		th:errors="*{state}">State Error</span>
+      </div>
+      
+	  <div class="form-group row">
+      <label for="zip" class="col-sm-2 col-form-label">Zip code: </label>
+      <input type="text" th:field="*{zip}"/>
+      <span class="text-danger"
+      		th:if="${#fields.hasErrors('zip')}"
+      		th:errors="*{zip}">Zip Error</span>
+      </div>
+    
+      <h3>Here's how I'll pay...</h3>
+      <div class="form-group row">
+      <label for="ccNumber" class="col-sm-2 col-form-label">Credit Card #: </label>
+      <input type="text" th:field="*{ccNumber}"/>
+      <span class="text-danger"
+      		th:if="${#fields.hasErrors('ccNumber')}"
+      		th:errors="*{ccNumber}">CC Num Error</span>
+      </div>
+      
+      <div class="form-group row">
+      <label for="ccExpiration" class="col-sm-2 col-form-label">Expiration: </label>
+      <input type="text" th:field="*{ccExpiration}"/>
+      <span class="text-danger"
+      		th:if="${#fields.hasErrors('ccExpiration')}"
+      		th:errors="*{ccExpiration}">CC Expiration Date Error</span>
+      </div>
+      
+      <div class="form-group row">
+      <label for="ccCVV" class="col-sm-2 col-form-label">CVV: </label>
+      <input type="text" th:field="*{ccCVV}"/>
+      <span class="text-danger"
+      		th:if="${#fields.hasErrors('name')}"
+      		th:errors="*{name}">Name Error</span>
+      </div>
+
+      <input type="submit" value="Submit order"/>
+    </form>
+</div>
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script th:href="@{/js/jquery-3.3.1.slim.min.js}" src="../js/jquery-3.3.1.slim.min.js"></script>
+    <script th:href="@{/js/popper.min.js}" src="../js/popper.min.js"></script>
+    <script th:href="@{/js/bootstrap.min.js}" src="../js/bootstrap.min.js"></script>
+    <script th:href="@{/js/holder.min.js}" src="../js/holder.min.js"></script>
+  </body>
+</html>
