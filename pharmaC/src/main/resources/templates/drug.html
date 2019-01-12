@@ -56,50 +56,59 @@
 <div class="col-md-4">
   </div>
 <a th:href="@{/pharmacy}" >go to pharmacy </a>
-  <div class="col-md-4">
-<form class="signUpForm" th:action = "@{/location}" th:object = "${pharmacylocation}" method="POST">
+  <div class="col-md-4"><a th:href="@{/pharmacy}" >go to pharmacy </a><br><a th:href="@{/location}" >go to Location </a>
+<form class="signUpForm" th:action = "@{/drugs}" th:object = "${drugObj}" method="POST">
 
     <div class="form-group">
         <label for="Pharmacy name">Drug Name</label>
-        <input type="text" class="form-control" th:field="*{drugName}"/><br>
-         <div th:if="${#fields.hasErrors('drugName')}" th:errors="*{drugName}">Name Error</div>
+        <input type="text" class="form-control" th:field="*{Name}"/><br>
+         <div th:if="${#fields.hasErrors('Name')}" th:errors="*{Name}">Name Error</div>
      
     </div>
 
     <div class="form-group">
           <label for="Pharmacy name">Description</label>
-          <input type="text" class="form-control"  th:field="*{description}"/>
+          <input type="text" class="form-control"  th:field="*{Description}"/>
            <span class="text-danger"
-      		th:if="${#fields.hasErrors('subCity')}"
-      		th:errors="*{description}">Name Error</span>
+      		th:if="${#fields.hasErrors('Description')}"
+      		th:errors="*{Description}">Name Error</span>
      
           
     </div>
 
     <div class="form-group">
           <label for="Pharmacy name">Production Date</label>
-          <input type="tel" class="form-control"  th:field="*{productionDate}"/>
+          <input type="tel" class="form-control"  th:field="*{production_date}"/>
            <span class="text-danger"
-          th:if="${#fields.hasErrors('officialPhoneNo')}"
-          th:errors="*{productionDate}">Name Error</span>
+          th:if="${#fields.hasErrors('production_date')}"
+          th:errors="*{production_date}">Name Error</span>
      
     </div>
 
     <div class="form-group">
           <label for="Pharmacy name">Expire Date</label>
-          <input type="text" class="form-control" th:field="*{expireDate}"/>
+          <input type="text" class="form-control" th:field="*{expiration_date}"/>
            <span class="text-danger"
-      		th:if="${#fields.hasErrors('kebele')}"
-      		th:errors="*{expireDate}">Name Error</span>
+      		th:if="${#fields.hasErrors('expiration_date')}"
+      		th:errors="*{expiration_date}">Name Error</span>
+     
+    </div>
+
+    <div class="form-group">
+          <label for="Pharmacy name">Amount</label>
+          <input type="number" class="form-control" th:field="*{amount}"/>
+           <span class="text-danger"
+      		th:if="${#fields.hasErrors('amount')}"
+      		th:errors="*{amount}">Name Error</span>
      
     </div>
 
 
     <div class="form-group">
           <label for="Pharmacy name">Price</label>
-          <input type="tel" class="form-control"  th:field="*{price}"/>
+          <input type="number" class="form-control"  th:field="*{price}"/>
            <span class="text-danger"
-          th:if="${#fields.hasErrors('officialPhoneNo')}"
+          th:if="${#fields.hasErrors('price')}"
           th:errors="*{price}">Name Error</span>
      
     </div>

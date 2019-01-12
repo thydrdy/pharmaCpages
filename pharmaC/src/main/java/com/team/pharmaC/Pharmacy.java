@@ -46,11 +46,18 @@ public class Pharmacy implements Serializable{
   private String Description;
    
   @ManyToMany
-  private java.util.Set<PharmacBranch> pharmacBranches= new HashSet<PharmacBranch>() ;
+  private java.util.Set<PharmacBranch> pharmacBranches= new HashSet<PharmacBranch>();
+  
+  @ManyToMany
+  private java.util.Set<Drugs> pharmacDrugs= new HashSet<Drugs>();
   
  
   public void addLocation(PharmacBranch loc) {
 	  this.pharmacBranches.add(loc);
+  }
+  
+  public void addDrugs(Drugs drug) {
+	  this.pharmacDrugs.add(drug);
   }
   
 }
