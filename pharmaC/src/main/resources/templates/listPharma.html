@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head >
+    <title>List Of Pharmacies</title>
+  </head>
+
+  <body>
+  	<div class="container">
+  	<div th:if="${not #lists.isEmpty(pharmas)}">
+    <h2>Pharmacy List</h2>
+
+    
+    <div th:each="pharma : ${pharmas}" style="width:60%">
+    	Id :<span th:text="${pharma.pharmacy_license_id}"></span><br>
+    	Name :<span th:text="${pharma.pharmacyName}"></span><br>
+    	Email :<span th:text="${pharma.office_email}"></span><br>
+    	Phone_no :<span th:text="${pharma.office_phone_no}"></span><br>
+    	<h2> list of branches</h2>
+    	<div th:each="br : ${pharma.pharmacBranches}" align="right">
+    		Br Id :<span th:text="${br.branch_no}"></span><br>
+    		Br City :<span th:text="${br.city}"></span><br>
+    		Br Name :<span th:text="${br.BranchName}"></span><br><br>
+    	</div>
+    	<br>
+    	<h2> list of Drugs</h2>
+    	<div th:each="dr : ${pharma.pharmacDrugs}" align="right">
+    		drug_id     :<span th:text="${dr.drug_id}"></span><br>
+    		Name        :<span th:text="${dr.Name}"></span><br>
+    		Description :<span th:text="${dr.Description}"></span><br><br>
+    	</div>
+    	<br><br>
+    	<hr>
+    </div>
+</div>
+    </div>   
+  </body>
+</html>
