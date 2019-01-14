@@ -16,21 +16,21 @@ body, html{
 }
 
 .pimg1{
-	background-image: url("../images/flamingo.jpg");
+	background-image: url("../images/pills3.png");
 	min-height: 70%;
 }
 
 .pimg2{
-	background-image: url("../images/flower.jpg");
+	background-image: url("../images/pills1.png");
 	min-height: 40%;
 }
 
 .pimg3{
-	background-image: url("../images/flowerb.jpg");
+	background-image: url("../images/pills2.png");
 	min-height: 40%;
 }
 .signUpPage{
-	background-image: url("../images/pills.jpg");
+	background-image: url("../images/pills4.png");
 	min-height: 100%;
 	position: relative;
 	opacity: 1;
