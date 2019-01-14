@@ -24,7 +24,7 @@ public class SearchControllerTest {
 	
 	@Test
 	public void testSearchPage() throws Exception {
-	    mockMvc.perform(get("/"))    
+	    mockMvc.perform(get("/search"))    
 	    
 	      .andExpect(status().isOk())  
 	      
@@ -33,6 +33,6 @@ public class SearchControllerTest {
 	      .andExpect(content().string(    
 	          containsString("Pharmacy lists")));  
 	  }
-
-
+	
+	
 }

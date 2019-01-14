@@ -24,7 +24,7 @@ public class FileUploadControllerTest {
 	
 	@Test
 	  public void testUploadPage() throws Exception {
-	    mockMvc.perform(get("/"))    
+	    mockMvc.perform(get("/upload"))    
 	    
 	      .andExpect(status().isOk())  
 	      

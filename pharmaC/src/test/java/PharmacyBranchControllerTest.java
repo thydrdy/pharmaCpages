@@ -24,7 +24,7 @@ public class PharmacyBranchControllerTest {
 	
 	@Test
 	  public void testLocationsPage() throws Exception {
-	    mockMvc.perform(get("/"))    
+	    mockMvc.perform(get("/locations"))    
 	    
 	      .andExpect(status().isOk())  
 	      
@@ -33,6 +33,18 @@ public class PharmacyBranchControllerTest {
 	      .andExpect(content().string(    
 	          containsString("Pharmacy Branchs")));  
 	  }
+	
+	@Test
+    public void showAddBranchForm() throws Exception {
+        mockMvc.perform(get("/locations"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("locations"))
+                .andExpect(forwardedUrl("/locations"))
+                .andExpect(model().attribute("locations", hasProperty("branchName", nullValue())))
+                .andExpect(model().attribute("locations", hasProperty("subCity", isEmptyOrNullString())))
+                .andExpect(model().attribute("locations", hasProperty("kebele", isEmptyOrNullString())))
+                .andExpect(model().attribute("locations", hasProperty("phoneNumber", isEmptyOrNullString())));
+}
 
 
 }

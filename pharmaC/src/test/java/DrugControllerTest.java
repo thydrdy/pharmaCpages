@@ -24,7 +24,7 @@ public class DrugControllerTest {
 	
 	@Test
 	  public void testDrugPage() throws Exception {
-	    mockMvc.perform(get("/"))    
+	    mockMvc.perform(get("/drug"))    
 	    
 	      .andExpect(status().isOk())  
 	      
@@ -33,6 +33,17 @@ public class DrugControllerTest {
 	      .andExpect(content().string(    
 	          containsString("Drug")));  
 	  }
+	
+	@Test
+    public void showAddDrugForm() throws Exception {
+        mockMvc.perform(get("/drug"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("drug"))
+                .andExpect(forwardedUrl("/drug"))
+                .andExpect(model().attribute("drug", hasProperty("name", nullValue())))
+                .andExpect(model().attribute("drug", hasProperty("expireDate", isEmptyOrNullString())))
+                .andExpect(model().attribute("drug", hasProperty("price", isEmptyOrNullString())));
+}
 
 
 }
