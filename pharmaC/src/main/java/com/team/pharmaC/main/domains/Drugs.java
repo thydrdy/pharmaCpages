@@ -1,4 +1,4 @@
-package com.team.pharmaC;
+package com.team.pharmaC.main.domains;
 
 import java.io.Serializable;
 

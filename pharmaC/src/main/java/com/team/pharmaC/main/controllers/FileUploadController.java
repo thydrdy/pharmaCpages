@@ -1,4 +1,4 @@
-package com.team.pharmaC.web;
+package com.team.pharmaC.main.controllers;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.team.pharmaC.Pharmacy;
+import com.team.pharmaC.main.domains.Pharmacy;
 
 @Controller
 @RequestMapping("/upload")

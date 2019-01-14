@@ -1,4 +1,4 @@
-package com.team.pharmaC.web;
+package com.team.pharmaC.main.controllers;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.team.pharmaC.PharmacBranch;
-import com.team.pharmaC.Pharmacy;
-import com.team.pharmaC.data.PharmacyBranchRepository;
-import com.team.pharmaC.data.PharmacyRepository;
+import com.team.pharmaC.main.domains.PharmacBranch;
+import com.team.pharmaC.main.domains.Pharmacy;
+import com.team.pharmaC.main.repository.PharmacyBranchRepository;
+import com.team.pharmaC.main.repository.PharmacyRepository;
 
 @Controller
 @SessionAttributes("pharmacy")
