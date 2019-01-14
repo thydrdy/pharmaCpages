@@ -1,0 +1,140 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+		<head>
+		<title> </title>
+		<meta charset = "utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	
+
+	</head>
+	
+
+	
+<body class="addDrug">
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+
+				</button>
+					<div class="navbar-brand"></div>
+			</div>
+
+<div class="collapse navbar-collapse" id="mainNavBar">
+	<ul class="nav navbar-nav">
+		<li><a href="index"> Home </a> </li>
+		<li> <a href="#"> Location of Pharmacies </a> </li>
+    <li> <a href="#"> Contact us </a> </li>
+
+
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">My profile <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="active"> <a href="#"> Pharmacy </a> </li>
+							<li> <a href="#"> User </a> </li>
+						</ul>
+			 </li>
+
+	</ul>
+
+</div>
+		</div>
+  </nav>
+
+<div class="container">
+
+<div class="col-md-4">
+  </div>
+<a th:href="@{/pharmacy}" >go to pharmacy </a>
+  <div class="col-md-4"><a th:href="@{/pharmacy}" >go to pharmacy </a><br><a th:href="@{/location}" >go to Location </a>
+<form class="signUpForm" th:action = "@{/drugs}" th:object = "${drugObj}" method="POST">
+
+    <div class="form-group">
+        <label for="Pharmacy name">Drug Name</label>
+        <input type="text" class="form-control" th:field="*{Name}"/><br>
+         <div th:if="${#fields.hasErrors('Name')}" th:errors="*{Name}">Name Error</div>
+     
+    </div>
+
+    <div class="form-group">
+          <label for="Pharmacy name">Description</label>
+          <input type="text" class="form-control"  th:field="*{Description}"/>
+           <span class="text-danger"
+      		th:if="${#fields.hasErrors('Description')}"
+      		th:errors="*{Description}">Name Error</span>
+     
+          
+    </div>
+
+    <div class="form-group">
+          <label for="Pharmacy name">Production Date</label>
+          <input type="tel" class="form-control"  th:field="*{production_date}"/>
+           <span class="text-danger"
+          th:if="${#fields.hasErrors('production_date')}"
+          th:errors="*{production_date}">Name Error</span>
+     
+    </div>
+
+    <div class="form-group">
+          <label for="Pharmacy name">Expire Date</label>
+          <input type="text" class="form-control" th:field="*{expiration_date}"/>
+           <span class="text-danger"
+      		th:if="${#fields.hasErrors('expiration_date')}"
+      		th:errors="*{expiration_date}">Name Error</span>
+     
+    </div>
+
+    <div class="form-group">
+          <label for="Pharmacy name">Amount</label>
+          <input type="number" class="form-control" th:field="*{amount}"/>
+           <span class="text-danger"
+      		th:if="${#fields.hasErrors('amount')}"
+      		th:errors="*{amount}">Name Error</span>
+     
+    </div>
+
+
+    <div class="form-group">
+          <label for="Pharmacy name">Price</label>
+          <input type="number" class="form-control"  th:field="*{price}"/>
+           <span class="text-danger"
+          th:if="${#fields.hasErrors('price')}"
+          th:errors="*{price}">Name Error</span>
+     
+    </div>
+
+
+
+    <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-warning">Submit</button>
+
+  </form>
+</div>
+</div>
+
+<hr/>
+<footer id="footer">
+      <div class="container">
+        <div class="row text-center">
+          <p>&copy; PharmaC. All Rights Reserved.2018 </p>
+        </div>
+      </div>
+    </footer>
+
+ 
+
+    </body>
+
+</html>

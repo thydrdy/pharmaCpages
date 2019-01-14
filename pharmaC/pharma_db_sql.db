@@ -1,0 +1,496 @@
+
+    create table pharmac_branch (
+       branch_no bigint not null AUTO_INCREMENT,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table hibernate_sequence (
+       next_val bigint
+    ) engine=InnoDB
+
+    insert into hibernate_sequence values ( 1 )
+
+    create table pharmac_branch (
+       branch_no bigint not null,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
+
+    create table pharmac_branch (
+       branch_no bigint not null auto_increment,
+        branch_name varchar(255),
+        branch_office_phone_no varchar(255),
+        city varchar(255),
+        kebele varchar(255),
+        subcity varchar(255),
+        primary key (branch_no)
+    ) engine=InnoDB
+
+    create table pharmacy (
+       pharmacy_license_id bigint not null auto_increment,
+        description varchar(255),
+        office_email varchar(255),
+        office_phone_no varchar(255),
+        pharmacy_name varchar(255),
+        primary key (pharmacy_license_id)
+    ) engine=InnoDB
+
+    create table pharmacy_pharmac_branches (
+       pharmacy_pharmacy_license_id bigint not null,
+        pharmac_branches_branch_no bigint not null,
+        primary key (pharmacy_pharmacy_license_id, pharmac_branches_branch_no)
+    ) engine=InnoDB
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FK3h1gedmky37giby9y2spth1ch 
+       foreign key (pharmac_branches_branch_no) 
+       references pharmac_branch (branch_no)
+
+    alter table pharmacy_pharmac_branches 
+       add constraint FKpuquyoslr2aprqwtdmgdc0x7f 
+       foreign key (pharmacy_pharmacy_license_id) 
+       references pharmacy (pharmacy_license_id)
