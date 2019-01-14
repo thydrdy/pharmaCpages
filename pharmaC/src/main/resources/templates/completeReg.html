@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head >
+    <title>List Of Pharmacies</title>
+  </head>
+
+  <body>
+  	<div class="container">
+  	<div th:if="${not #lists.isEmpty(pharmacy)}">
+    <h2>Pharmacy List</h2>
+
+    <h1> You Are Almost Done...</h1>
+    <h3> please confirm your decision</h3>
+    <div  style="width:60%;text-align: center;">
+    	Id :<span th:text="${pharmacy.pharmacy_license_id}"></span><br>
+    	Name :<span th:text="${pharmacy.pharmacyName}"></span><br>
+    	Email :<span th:text="${pharmacy.office_email}"></span><br>
+    	Phone_no :<span th:text="${pharmacy.office_phone_no}"></span><br>
+    	Phone_no :<span th:text="${pharmacy.Description}"></span><br>
+    	<h2> list of branches</h2>
+    	<div th:each="br : ${pharmacy.pharmacBranches}" style="left:40% ;">
+    		Branch Id :<span th:text="${br.branch_no}"></span><br>
+    		Branch Name :<span th:text="${br.BranchName}"></span><br>
+    		Branch city :<span th:text="${br.city}"></span><br>
+    		Branch subcity :<span th:text="${br.subcity}"></span><br>
+    		Branch kebele :<span th:text="${br.kebele}"></span><br>
+    		Branch Office Phone_no :<span th:text="${br.branch_office_phone_no}"></span><br><br>
+    	</div>
+    	<br>
+    	<h2> list of Drugs</h2>
+    	<div th:each="dr : ${pharmacy.pharmacDrugs}" style="left:40% ;">
+    		drug_id     :<span th:text="${dr.drug_id}"></span><br>
+    		Name        :<span th:text="${dr.Name}"></span><br>
+    		Description :<span th:text="${dr.Description}"></span><br>
+    		expiration_date     :<span th:text="${dr.expiration_date}"></span><br>
+    		amount        :<span th:text="${dr.amount}"></span><br>
+    		price            :<span th:text="${dr.price}"></span><br>
+    		expiration_date  :<span th:text="${dr.expiration_date}"></span><br>
+    		production_date  :<span th:text="${dr.production_date}"></span><br><br>
+    	</div>
+    	<h2> list of Profile Images uploaded</h2>
+    	<div th:each="path : ${pharmacy.profileImages}" align="right">
+    		<img alt="imgs"  th:src="@{'/uploads/'+${path}}" width="20%">
+    	</div>
+    	
+    	<form class="signUpForm" action="#" th:action = "@{/pharmacy}" th:object = "${pharmacy}" method="POST">
+    		<button type="submit" class="btn btn-warning">Save...</button>
+    	</form>
+    	<hr><hr>
+    	<br><br>
+    </div>
+</div>
+    </div>   
+  </body>
+</html>

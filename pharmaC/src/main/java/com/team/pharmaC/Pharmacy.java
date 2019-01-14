@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 //import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -44,7 +45,9 @@ public class Pharmacy implements Serializable{
   @NotBlank(message="*This Field is required")
   @Size(min=10, message="**please write a short description about your pharmacy..")
   private String Description;
-   
+  
+  private java.util.ArrayList<String> profileImages= new java.util.ArrayList<String>();
+  
   @ManyToMany
   private java.util.Set<PharmacBranch> pharmacBranches= new HashSet<PharmacBranch>();
   
@@ -58,6 +61,10 @@ public class Pharmacy implements Serializable{
   
   public void addDrugs(Drugs drug) {
 	  this.pharmacDrugs.add(drug);
+  }
+  
+  public void addimage(String path) {
+	  this.profileImages.add(path);
   }
   
 }

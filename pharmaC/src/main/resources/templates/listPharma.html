@@ -29,6 +29,11 @@
     		Name        :<span th:text="${dr.Name}"></span><br>
     		Description :<span th:text="${dr.Description}"></span><br><br>
     	</div>
+    	<h2> list of Profile Images uploaded</h2>
+    	<div th:each="path : ${pharma.profileImages}" align="right">
+    		<img alt="imgs"  th:src="@{'/uploads/'+${path}}" width="20%">
+    	</div>
+    	<div>
     	<br><br>
     	<hr>
     </div>

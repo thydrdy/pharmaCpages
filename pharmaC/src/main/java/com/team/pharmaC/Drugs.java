@@ -34,15 +34,11 @@ public class Drugs  implements Serializable {
 	  @Size(min=4, message="**Expiration Date must be given in dd/mm/yy format")
 	  private String expiration_date;
 	  
-	  //@NotBlank(message="*Amount is required")
-	  //@Size(min=2, message="** atleast 2 character is required.")
-	  @NotNull
+	  @NotNull(message="The Amount Field can not be empty")
 	  @Min(2)
 	  private long amount;
 	  
-	  //@NotBlank(message="*price is required")
-	  //@Size(min=2, message="** atleast 2 character is required.")
-	  @NotNull
+	  @NotNull(message="The price Field can not be empty")
 	  @Min(2)	  
 	  private long price;
 	  
@@ -50,4 +46,13 @@ public class Drugs  implements Serializable {
 	  @Size(min=4, message="**Production Date must be given in dd/mm/yy format")
 	  private String production_date;
 	  
+	  public void clearAll() {
+		  this.amount=0;
+		  this.Description="";
+		  this.drug_id=0;
+		  this.expiration_date="";
+		  this.Name="";
+		  this.price=0;
+		  this.production_date="";
+	  }
 }

@@ -16,35 +16,55 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.team.pharmaC.PharmacBranch;
 import com.team.pharmaC.Pharmacy;
+import com.team.pharmaC.data.PharmacyBranchRepository;
 import com.team.pharmaC.data.PharmacyRepository;
 
 @Controller
-@RequestMapping("/pharmacy")
 @SessionAttributes("pharmacy")
 public class PharmacyController {
 	private PharmacyRepository pharmaRepo;
+	private PharmacyBranchRepository rep;
 	@Autowired
-	public PharmacyController(PharmacyRepository repo) {
+	public PharmacyController(PharmacyRepository repo,PharmacyBranchRepository rep) {
 		this.pharmaRepo=repo;
+		this.rep=rep;
 	}
 	@ModelAttribute(name="pharmacy")
 	public Pharmacy pharmacy(Model model) {
 		return new Pharmacy();
 	}
-	@GetMapping
-	public String greetingForm(Model model) { 
+	@GetMapping("/pharmacy")
+	public String pharmacForm(Model model) { 
 	  return "pharmacy";    
 	}
 
-	@PostMapping
-	public String processOrder(@Valid Pharmacy pharmacy, Errors errors,SessionStatus sessionStatus) {
+	@PostMapping("/pharmacy/cont")
+	public String savePh(@Valid Pharmacy pharmacy, Errors errors) {
+		if(errors.hasErrors()) {
+			return "pharmacy";
+		}
+		return "pharmacy";
+	}
+	
+	@PostMapping("/pharmacy")
+	public String savePharma(@Valid Pharmacy pharmacy, Errors errors,SessionStatus sessionStatus) {
 		
 		if(errors.hasErrors()) {
 			return "pharmacy";
 		}
+		for(PharmacBranch br : pharmacy.getPharmacBranches()) {
+			br.setPharmacDrugs(pharmacy.getPharmacDrugs());
+			br.setProfileImages(pharmacy.getProfileImages());
+			rep.save(br);
+		}
 		pharmaRepo.save(pharmacy);
 		sessionStatus.setComplete();
-		return "index";
+		return "completeReg";
+	}
+	
+	@GetMapping("/complete")
+	public String completeForm(Model model) { 
+	  return "completeReg";    
 	}
 
 }

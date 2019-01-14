@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head >
+    <title>List Of Pharmacies</title>
+  </head>
+
+  <body>
+  	<div class="container">
+    <h2>Pharmacy List</h2>
+    <img alt="imgs"  src="../images/239520768_200992.jpg" width="20%">
+    <div th:each="path : ${pharmacy.profileImages}" >
+    	<img alt="imgs"  th:src="@{'/uploads/'+${path}}" width="20%">
+    </div>
+    <!--  form class="signUpForm"  th:action = "@{/upload/image}" th:object = "${pharmacy}" method="POST">-->
+    <form method="POST" action="/upload/image" enctype="multipart/form-data">
+    	<input type="file" name="file" /><br/><br/>
+    	<input type="submit" value="Submit" />
+	</form>
+</div> 
+  </body>
+</html>

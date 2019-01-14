@@ -50,8 +50,8 @@ public class pharmacyBranchController {
 		if(errors.hasErrors()) {
 			return "locations";
 		}
+		//pharmacybr.setHQ_pharmacy(pharmacy);
 	    pharmacy.addLocation(pharmacybr);
-		this.rep.save(pharmacybr);
 		return "locations";    
 	}
 }

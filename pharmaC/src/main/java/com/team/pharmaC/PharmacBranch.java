@@ -2,11 +2,15 @@ package com.team.pharmaC;
 
 
 import java.io.Serializable;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -39,10 +43,25 @@ public class PharmacBranch implements Serializable{
 	  @Size(min=4, message="**kebele must be at least 5 characters long")
 	  private String kebele;
 	  
-	  //private String location_coordinate;
+	  
+	  private java.util.ArrayList<String> profileImages= new java.util.ArrayList<String>();
+	  
+	  @ManyToMany
+	  private java.util.Set<Drugs> pharmacDrugs= new HashSet<Drugs>();
+	  
+	  // @OneToOne
+	  //private Pharmacy HQ_pharmacy;
 	  
 	  @NotBlank(message="*Branch Office Phone Number is required")
 	  @Size(min=10, message="**Branch Office Phone Number must be at least 10 characters long")// it should have  a valid phone
 	  private String branch_office_phone_no;
 	  
+	  public void addDrugs(Drugs drug) {
+		  this.pharmacDrugs.add(drug);
+	  }
+	  
+	  public void addimage(String path) {
+		  this.profileImages.add(path);
+	  }
+	 
 }

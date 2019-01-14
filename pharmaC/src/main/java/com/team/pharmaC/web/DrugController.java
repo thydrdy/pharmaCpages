@@ -21,6 +21,7 @@ import com.team.pharmaC.data.DrugsRepository;
 @RequestMapping("/drugs")
 @SessionAttributes("pharmacy")
 public class DrugController {
+	
 	private DrugsRepository rep;
 	@Autowired
 	public DrugController(DrugsRepository rep) {
