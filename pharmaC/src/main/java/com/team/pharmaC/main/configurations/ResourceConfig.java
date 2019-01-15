@@ -1,4 +1,4 @@
-package com.team.pharmaC.main.configurations;
+package com.team.pharmaC.configurations;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
