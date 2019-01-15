@@ -1,4 +1,5 @@
-package com.team.pharmaC;
+package com.team.pharmaC.main;
+
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -13,26 +14,37 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.team.pharmaC.main.controllers.FileUploadController;
+import com.team.pharmaC.main.controllers.DrugController;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(FileUploadController.class)
-public class FileUploadControllerTest {
+@WebMvcTest(DrugController.class)
+public class DrugControllerTest {
 	
 	@Autowired
 	private MockMvc mockMvc;
 	
 	@Test
-	  public void testUploadPage() throws Exception {
-	    mockMvc.perform(get("/upload"))    
+	  public void testDrugPage() throws Exception {
+	    mockMvc.perform(get("/drug"))    
 	    
 	      .andExpect(status().isOk())  
 	      
-	      .andExpect(view().name("upload")) 
+	      .andExpect(view().name("drug")) 
 	      
 	      .andExpect(content().string(    
-	          containsString("File Upload")));  
+	          containsString("Drug")));  
 	  }
-
+	/*
+	@Test
+    public void showAddDrugForm() throws Exception {
+        mockMvc.perform(get("/drug"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("drug"))
+                .andExpect(forwardedUrl("/drug"))
+                .andExpect(model().attribute("drug", hasProperty("name", nullValue())))
+                .andExpect(model().attribute("drug", hasProperty("expireDate", isEmptyOrNullString())))
+                .andExpect(model().attribute("drug", hasProperty("price", isEmptyOrNullString())));
+}
+*/
 
 }

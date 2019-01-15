@@ -1,4 +1,4 @@
-package com.team.pharmaC;
+package com.team.pharmaC.main;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -12,38 +12,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
-import com.team.pharmaC.main.controllers.PharmacyController;
+import com.team.pharmaC.main.controllers.pharmacyBranchController;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(PharmacyController.class)
-public class PharmacyControllerTest {
+@WebMvcTest(pharmacyBranchController.class)
+public class PharmacyBranchControllerTest {
 	
 	@Autowired
 	private MockMvc mockMvc;
 	
 	@Test
-	  public void testPharmacyPage() throws Exception {
-	    mockMvc.perform(get("/pharmacy"))    
+	  public void testLocationsPage() throws Exception {
+	    mockMvc.perform(get("/locations"))    
 	    
 	      .andExpect(status().isOk())  
 	      
-	      .andExpect(view().name("pharmacy")) 
+	      .andExpect(view().name("locations")) 
 	      
 	      .andExpect(content().string(    
-	          containsString("Pharmacy")));  
+	          containsString("Pharmacy Branchs")));  
 	  }
 	/*
 	@Test
     public void showAddBranchForm() throws Exception {
-        mockMvc.perform(get("/pharmacy"))
+        mockMvc.perform(get("/locations"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("pharmacy"))
-                .andExpect(forwardedUrl("/pharmacy"))
-                .andExpect(model().attribute("pharmacy", hasProperty("pharmacyName", nullValue())))
-                .andExpect(model().attribute("pharmacy", hasProperty("email", isEmptyOrNullString())))
-                .andExpect(model().attribute("pharmacy", hasProperty("description", isEmptyOrNullString())))
-                .andExpect(model().attribute("pharmacy", hasProperty("phoneNumber", isEmptyOrNullString())));
+                .andExpect(view().name("locations"))
+                .andExpect(forwardedUrl("/locations"))
+                .andExpect(model().attribute("locations", hasProperty("branchName", nullValue())))
+                .andExpect(model().attribute("locations", hasProperty("subCity", isEmptyOrNullString())))
+                .andExpect(model().attribute("locations", hasProperty("kebele", isEmptyOrNullString())))
+                .andExpect(model().attribute("locations", hasProperty("phoneNumber", isEmptyOrNullString())));
 }
 */
 

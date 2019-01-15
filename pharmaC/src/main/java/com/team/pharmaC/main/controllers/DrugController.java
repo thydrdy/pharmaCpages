@@ -1,4 +1,4 @@
-package com.team.pharmaC.main.Controllers;
+package com.team.pharmaC.main.controllers;
 
 import javax.validation.Valid;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.team.pharmaC.Drugs;
-import com.team.pharmaC.PharmacBranch;
-import com.team.pharmaC.Pharmacy;
-import com.team.pharmaC.data.DrugsRepository;
+import com.team.pharmaC.main.domains.Drugs;
+import com.team.pharmaC.main.domains.PharmacBranch;
+import com.team.pharmaC.main.domains.Pharmacy;
+import com.team.pharmaC.main.repository.DrugsRepository;
 
 @Controller
 @RequestMapping("/drugs")

@@ -1,4 +1,5 @@
-package com.team.pharmaC;
+package com.team.pharmaC.main;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

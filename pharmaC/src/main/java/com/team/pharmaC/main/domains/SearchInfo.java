@@ -1,4 +1,4 @@
-package com.team.pharmaC;
+package com.team.pharmaC.main.domains;
 
 import lombok.Data;
 
@@ -12,7 +12,6 @@ public class SearchInfo {
 	private boolean byPrice=true;
 	private boolean byEdate;
 	private boolean byAmount;
-	private String buff;
 	public SearchInfo setAllTrue() {
 		this.byPharmacyName=true;
 		this.byLocationName=true;
