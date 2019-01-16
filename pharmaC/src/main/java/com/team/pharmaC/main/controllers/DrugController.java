@@ -36,16 +36,17 @@ public class DrugController {
 	
 	@GetMapping
 	public String drugForm(Model model) { 
-		
+		model.addAttribute("mssage", "Add Your Drugs");
 		  return "drug";    
 	}
 	
 	@PostMapping
-	public String proccessForm(@Valid @ModelAttribute("drugObj") Drugs drug,  Errors errors, Pharmacy pharmacy) { 
+	public String proccessForm(@Valid @ModelAttribute("drugObj") Drugs drug,  Errors errors, Pharmacy pharmacy,Model model) { 
 		
 		if(errors.hasErrors()) {
 			return "drug";
 		}
+		model.addAttribute("mssage", "Add Another Drug");
 	    pharmacy.addDrugs(drug);
 		this.rep.save(drug);
 		return "drug";    

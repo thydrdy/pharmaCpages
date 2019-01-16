@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.ui.Model;
 
 import com.team.pharmaC.main.controllers.DrugController;
 
@@ -24,7 +25,7 @@ public class DrugControllerTest {
 	private MockMvc mockMvc;
 	
 	@Test
-	  public void testDrugPage() throws Exception {
+	  public void testDrugPage(Model model) throws Exception {
 	    mockMvc.perform(get("/drug"))    
 	    
 	      .andExpect(status().isOk())  
@@ -32,7 +33,7 @@ public class DrugControllerTest {
 	      .andExpect(view().name("drug")) 
 	      
 	      .andExpect(content().string(    
-	          containsString("Drug")));  
+	          containsString(" ")));  
 	  }
 	/*
 	@Test

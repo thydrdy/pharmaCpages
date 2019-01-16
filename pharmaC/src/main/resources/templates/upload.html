@@ -3,20 +3,80 @@
       xmlns:th="http://www.thymeleaf.org">
   <head >
     <title>List Of Pharmacies</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
   </head>
 
   <body>
-  	<div class="container">
+  	<!-- <div class="container">
     <h2>Pharmacy List</h2>
     <img alt="imgs"  src="../images/239520768_200992.jpg" width="20%">
     <div th:each="path : ${pharmacy.profileImages}" >
     	<img alt="imgs"  th:src="@{'/uploads/'+${path}}" width="20%">
-    </div>
+    </div> -->
     <!--  form class="signUpForm"  th:action = "@{/upload/image}" th:object = "${pharmacy}" method="POST">-->
-    <form method="POST" action="/upload/image" enctype="multipart/form-data">
+    <!-- <form method="POST" action="/upload/image" enctype="multipart/form-data">
     	<input type="file" name="file" /><br/><br/>
     	<input type="submit" value="Submit" />
 	</form>
-</div> 
+</div>  -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Profile
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item" href="#"> Pharmacy </a>
+              <a class="dropdown-item" href="#"> User</a>
+              <a class="dropdown-item" href="#"> Just in case</a>
+                </div>
+          </li>
+            </div>
+          </ul>
+      </div>
+
+  </nav>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-8 text-center">
+        <h2 class="mb-3 text-center">Pharmacy List</h2>
+        <form class="signUpForm form-row my-2"  th:action = "@{/upload/image}"
+        th:object = "${pharmacy}" method="POST" enctype="multipart/form-data">
+        <!-- <input class="form-control w-50 align-self-center" type="file" name="file" /><br/><br/>
+        <input class="form-control w-50 align-self-center" type="submit" value="Submit" /> -->
+        <!-- <div class="row">
+          <div class="col-6"> -->
+              <input class="form-control form-col w-50 align-self-center" type="file" name="file" />
+              <input class="form-control form-col w-50 align-self-center" type="submit" value="Submit" />
+          <!-- </div>
+        </div> -->
+      </form>
+        <div th:each="path : ${pharmacy.profileImages}" >
+          <!-- please replace the src of the next img with th:src="@{'/uploads/'+${path}}" -->
+          <img alt="imgs" src="../static/pills1.png" class="img img-fluid img-responsive rounded"
+           width="500px" height="500px" >
+        </div>
+      </div>
+    </div>
+</div>
+ <script type="text/javascript"  src="../static/js/jquery.min.js"  th:src="@{/js/jquery.min.js}" ></script>
+    <script type="text/javascript" src="../static/js/bootstrap.js" th:src="@{/js/bootstrap.js}" ></script>
   </body>
 </html>

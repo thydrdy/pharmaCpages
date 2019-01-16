@@ -28,7 +28,7 @@ public class FileUploadController {
 
     @PostMapping("/image") 
     public String singleFileUpload(@RequestParam("file") MultipartFile file,RedirectAttributes redirectAttributes, Pharmacy pharmacy) {
-    	String UPLOADED_FOLDER = "C:\\Users\\Maroc\\Documents\\workspace-sts\\pharmacy_sql_db\\uploads\\";
+    	String UPLOADED_FOLDER = "C:\\Users\\Maroc\\Documents\\workspace-sts\\pharmacy_sql_db_secure\\uploads\\";
         if (file.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
             return "upload";

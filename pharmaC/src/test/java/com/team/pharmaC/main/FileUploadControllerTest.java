@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.ui.Model;
 
 import com.team.pharmaC.main.controllers.FileUploadController;
 
@@ -23,7 +24,7 @@ public class FileUploadControllerTest {
 	private MockMvc mockMvc;
 	
 	@Test
-	  public void testUploadPage() throws Exception {
+	  public void testUploadPage(Model model) throws Exception {
 	    mockMvc.perform(get("/upload"))    
 	    
 	      .andExpect(status().isOk())  
@@ -31,7 +32,7 @@ public class FileUploadControllerTest {
 	      .andExpect(view().name("upload")) 
 	      
 	      .andExpect(content().string(    
-	          containsString("File Upload")));  
+	          containsString(" ")));  
 	  }
 
 

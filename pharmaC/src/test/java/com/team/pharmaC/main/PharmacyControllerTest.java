@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.ui.Model;
 
 import com.team.pharmaC.main.controllers.PharmacyController;
 
@@ -23,7 +24,7 @@ public class PharmacyControllerTest {
 	private MockMvc mockMvc;
 	
 	@Test
-	  public void testPharmacyPage() throws Exception {
+	  public void testPharmacyPage(Model model) throws Exception {
 	    mockMvc.perform(get("/pharmacy"))    
 	    
 	      .andExpect(status().isOk())  
@@ -31,7 +32,7 @@ public class PharmacyControllerTest {
 	      .andExpect(view().name("pharmacy")) 
 	      
 	      .andExpect(content().string(    
-	          containsString("Pharmacy")));  
+	          containsString(" ")));  
 	  }
 	/*
 	@Test

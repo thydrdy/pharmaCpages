@@ -30,6 +30,7 @@ public class pharmacyBranchController {
 	
 	@ModelAttribute(name="pharmacyBranch")
 	public PharmacBranch pharmacyloc(Model model) {
+		model.addAttribute("mssage", "Create Your Branch Profile");
 		return new PharmacBranch();
 	}
 	
@@ -45,11 +46,12 @@ public class pharmacyBranchController {
 	}
 	
 	@PostMapping
-	public String proccessForm(@Valid @ModelAttribute("pharmacyBranch") PharmacBranch pharmacybr,  Errors errors, Pharmacy pharmacy) { 
+	public String proccessForm(@Valid @ModelAttribute("pharmacyBranch") PharmacBranch pharmacybr,  Errors errors, Pharmacy pharmacy,Model model) { 
 		
 		if(errors.hasErrors()) {
 			return "locations";
 		}
+		model.addAttribute("mssage", "Create Another  Branch Profile");
 		//pharmacybr.setHQ_pharmacy(pharmacy);
 	    pharmacy.addLocation(pharmacybr);
 		return "locations";    

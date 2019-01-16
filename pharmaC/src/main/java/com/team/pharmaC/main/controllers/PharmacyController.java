@@ -43,7 +43,7 @@ public class PharmacyController {
 		if(errors.hasErrors()) {
 			return "pharmacy";
 		}
-		return "pharmacy";
+		return "redirect:/location";
 	}
 	
 	@PostMapping("/pharmacy")
