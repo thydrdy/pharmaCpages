@@ -1,56 +1,144 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-  <head >
-    <title>List Of Pharmacies</title>
-  </head>
+      <head>
+    		<title>Complete registration</title>
+    		<meta charset = "utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/modern-business.css" rel="stylesheet">
+
+    	</head>
+
 
   <body>
-  	<div class="container">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My Profile
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                <a class="dropdown-item" href="#"> Pharmacy </a>
+                <a class="dropdown-item" href="#"> User</a>
+                <a class="dropdown-item" href="#"> Just in case</a>
+                  </div>
+            </li>
+              </div>
+            </ul>
+        </div>
+
+    </nav>
+
+
+<div class="container">
   	<div th:if="${not #lists.isEmpty(pharmacy)}">
     <h2>Pharmacy List</h2>
 
     <h1> You Are Almost Done...</h1>
     <h3> please confirm your decision</h3>
-    <div  style="width:60%;text-align: center;">
-    	Id :<span th:text="${pharmacy.pharmacy_license_id}"></span><br>
-    	Name :<span th:text="${pharmacy.pharmacyName}"></span><br>
-    	Email :<span th:text="${pharmacy.office_email}"></span><br>
-    	Phone_no :<span th:text="${pharmacy.office_phone_no}"></span><br>
-    	Phone_no :<span th:text="${pharmacy.Description}"></span><br>
-    	<h2> list of branches</h2>
-    	<div th:each="br : ${pharmacy.pharmacBranches}" style="left:40% ;">
-    		Branch Id :<span th:text="${br.branch_no}"></span><br>
-    		Branch Name :<span th:text="${br.BranchName}"></span><br>
-    		Branch city :<span th:text="${br.city}"></span><br>
-    		Branch subcity :<span th:text="${br.subcity}"></span><br>
-    		Branch kebele :<span th:text="${br.kebele}"></span><br>
-    		Branch Office Phone_no :<span th:text="${br.branch_office_phone_no}"></span><br><br>
-    	</div>
-    	<br>
-    	<h2> list of Drugs</h2>
-    	<div th:each="dr : ${pharmacy.pharmacDrugs}" style="left:40% ;">
-    		drug_id     :<span th:text="${dr.drug_id}"></span><br>
-    		Name        :<span th:text="${dr.Name}"></span><br>
-    		Description :<span th:text="${dr.Description}"></span><br>
-    		expiration_date     :<span th:text="${dr.expiration_date}"></span><br>
-    		amount        :<span th:text="${dr.amount}"></span><br>
-    		price            :<span th:text="${dr.price}"></span><br>
-    		expiration_date  :<span th:text="${dr.expiration_date}"></span><br>
-    		production_date  :<span th:text="${dr.production_date}"></span><br><br>
-    	</div>
+
+  <!--  <div  style="width:60%;text-align: center;"> -->
+
+        <div class="row">
+          <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="card h-200">
+              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+
+                    <a href="#">Project Three</a>
+                </h4>
+
+              <h2>Basic info</h2>
+            	Id :<span th:text="${pharmacy.pharmacy_license_id}"></span><br>
+            	Name :<span th:text="${pharmacy.pharmacyName}"></span><br>
+            	Email :<span th:text="${pharmacy.office_email}"></span><br>
+            	Phone_no :<span th:text="${pharmacy.office_phone_no}"></span><br>
+            	Phone_no :<span th:text="${pharmacy.Description}"></span><br>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="card h-200">
+              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Project Three</a>
+                </h4>
+
+                    	<h2> List of branches</h2>
+                    	<div th:each="br : ${pharmacy.pharmacBranches}">
+                    		Branch Id :<span th:text="${br.branch_no}"></span><br>
+                    		Branch Name :<span th:text="${br.BranchName}"></span><br>
+                    		Branch city :<span th:text="${br.city}"></span><br>
+                    		Branch subcity :<span th:text="${br.subcity}"></span><br>
+                    		Branch kebele :<span th:text="${br.kebele}"></span><br>
+                    		Branch Office Phone_no :<span th:text="${br.branch_office_phone_no}"></span><br><br>
+                    	</div>
+                    	<br>  </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="card h-200">
+              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Project Three</a>
+                </h4>
+
+                    	<h2> List of Drugs</h2>
+                    	<div th:each="dr : ${pharmacy.pharmacDrugs}">
+                    		drug_id     :<span th:text="${dr.drug_id}"></span><br>
+                    		Name        :<span th:text="${dr.Name}"></span><br>
+                    		Description :<span th:text="${dr.Description}"></span><br>
+                    		expiration_date     :<span th:text="${dr.expiration_date}"></span><br>
+                    		amount        :<span th:text="${dr.amount}"></span><br>
+                    		price            :<span th:text="${dr.price}"></span><br>
+                    		expiration_date  :<span th:text="${dr.expiration_date}"></span><br>
+                    		production_date  :<span th:text="${dr.production_date}"></span><br><br>
+                    	</div>
+                  </div>
+            </div>
+          </div>
+<div class="images">
     	<h2> list of Profile Images uploaded</h2>
+
     	<div th:each="path : ${pharmacy.profileImages}" align="right">
     		<img alt="imgs"  th:src="@{'/uploads/'+${path}}" width="20%">
     	</div>
-    	
-    	<form class="signUpForm" action="#" th:action = "@{/pharmacy}" th:object = "${pharmacy}" method="POST">
-    		<button type="submit" class="btn btn-warning">Save...</button>
+</div>
+    	<form class="signUpFor" action="#" th:action = "@{/pharmacy}" th:object = "${pharmacy}" method="POST">
+    		<button type="submit" class="btn btn-download">Save...</button>
     	</form>
     	<hr><hr>
     	<br><br>
     </div>
 </div>
-    </div>   
+    </div>
+  </div>
   </body>
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </html>

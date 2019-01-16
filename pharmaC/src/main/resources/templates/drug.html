@@ -1,68 +1,76 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-		<head>
-		<title> </title>
-		<meta charset = "utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-	
+      <head>
+        <title>Complete registration</title>
+        <meta charset = "utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	</head>
-	
+        <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/modern-business.css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../static/parallexstyle.css">
 
-	
+
+      </head>
+
+
+
 <body class="addDrug">
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Location of Pharmacies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Profile
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item" href="#"> Pharmacy </a>
+              <a class="dropdown-item" href="#"> User</a>
+              <a class="dropdown-item" href="#"> Just in case</a>
+                </div>
+          </li>
+            </div>
+          </ul>
+      </div>
 
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
-
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-
-				</button>
-					<div class="navbar-brand"></div>
-			</div>
-
-<div class="collapse navbar-collapse" id="mainNavBar">
-	<ul class="nav navbar-nav">
-		<li><a href="index"> Home </a> </li>
-		<li> <a href="#"> Location of Pharmacies </a> </li>
-    <li> <a href="#"> Contact us </a> </li>
-
-
-
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">My profile <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li class="active"> <a href="#"> Pharmacy </a> </li>
-							<li> <a href="#"> User </a> </li>
-						</ul>
-			 </li>
-
-	</ul>
-
-</div>
-		</div>
   </nav>
 
 <div class="container">
+  <div class="col-md-4"></div>
 
-<div class="col-md-4">
-  </div>
-  <div class="col-md-4"><a th:href="@{/complete}" >Done.... </a><br><a th:href="@{/location}" >go to Location </a>
+
+
+  <div class="col-md-4">
+    <h2>
+    <a th:href="@{/complete}" >Done.... </a><br><a th:href="@{/location}" >go to Location </a>
+  </h2>
 <form class="signUpForm" th:action = "@{/drugs}" th:object = "${drugObj}" method="POST">
 
     <div class="form-group">
         <label for="Pharmacy name">Drug Name</label>
-        <input type="text" class="form-control" th:field="*{Name}"/><br>
-         <div th:if="${#fields.hasErrors('Name')}" th:errors="*{Name}">Name Error</div>
-     
+        <input type="text" class="form-control" th:field="*{Name}"/>
+        <span class="text-danger"
+        th:if="${#fields.hasErrors('Description')}"
+        th:errors="*{Description}">Name Error</span>
+
     </div>
 
     <div class="form-group">
@@ -71,8 +79,8 @@
            <span class="text-danger"
       		th:if="${#fields.hasErrors('Description')}"
       		th:errors="*{Description}">Name Error</span>
-     
-          
+
+
     </div>
 
     <div class="form-group">
@@ -81,7 +89,7 @@
            <span class="text-danger"
           th:if="${#fields.hasErrors('production_date')}"
           th:errors="*{production_date}">Name Error</span>
-     
+
     </div>
 
     <div class="form-group">
@@ -90,7 +98,7 @@
            <span class="text-danger"
       		th:if="${#fields.hasErrors('expiration_date')}"
       		th:errors="*{expiration_date}">Name Error</span>
-     
+
     </div>
 
     <div class="form-group">
@@ -99,7 +107,7 @@
            <span class="text-danger"
       		th:if="${#fields.hasErrors('amount')}"
       		th:errors="*{amount}">Name Error</span>
-     
+
     </div>
 
 
@@ -109,18 +117,16 @@
            <span class="text-danger"
           th:if="${#fields.hasErrors('price')}"
           th:errors="*{price}">Name Error</span>
-     
+
     </div>
 
-
-
-    <div class="checkbox">
-    <label><input type="checkbox"> Remember me</label>
-    </div>
     <button type="submit" class="btn btn-warning">Submit</button>
 
   </form>
-</div>
+  </div>
+
+
+<div class="col-md-4"></div>
 </div>
 
 <hr/>
@@ -132,8 +138,10 @@
       </div>
     </footer>
 
- 
+
 
     </body>
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </html>

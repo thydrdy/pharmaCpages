@@ -1,0 +1,78 @@
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+		<head>
+		<title> </title>
+		<meta charset = "utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet"  href="../static/css/style.css" type="text/css">
+		<link rel="stylesheet" href="../static/css/custom.css"  type="text/css" >
+
+	</head>
+	
+	<script src="../static/js/jquery-1.10.2.min.js"></script>
+	<script src="../static/js/bootstrap.min.js"></script>
+	
+<body class="signUpPage">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+
+				</button>
+					<div class="navbar-brand"></div>
+			</div>
+
+<div class="collapse navbar-collapse" id="mainNavBar">
+	<ul class="nav navbar-nav">
+		<li><a href="index"> Home </a> </li>
+		<li> <a href="#"> Location of Pharmacies </a> </li>
+    <li> <a href="#"> Contact us </a> </li>
+
+
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">My profile <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="active"> <a href="#"> Pharmacy </a> </li>
+							<li> <a href="#"> User </a> </li>
+						</ul>
+			 </li>
+
+	</ul>
+
+</div>
+		</div>
+  </nav>
+
+<div class="container">
+
+<div class="col-md-4">
+  </div>
+
+  <div class="col-md-4" id="signedUp">
+  
+  <h1>Thank you for joining us...</h1>
+
+<p th:text = "'Pharmacy Name: ' + ${pharmacy.pharmacyName}"/>
+<p th:text = "'Sub City: ' + ${pharmacy.subCity}"/>
+<p th:text = "'Kebele: ' + ${pharmacy.kebele}"/>
+<p th:text = "'Official Phone Number: ' + ${pharmacy.officialPhoneNo}"/>
+<p th:text = "'Official Email: ' + ${pharmacy.officialEmail}"/>
+    
+<a href="/pharmacy"> Return back to signup page. </a>
+    
+</div>
+</div>
+
+</body>
+</html>

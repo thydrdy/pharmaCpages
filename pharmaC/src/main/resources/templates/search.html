@@ -78,9 +78,8 @@
 
   <body>
   	<div class="container">
-  	 <div>  <h2>Pharmacy List</h2>  <span th:text="${result}">&nbsp;</span></div>
-  		<div>
-         
+  		<div >
+            <h2>Pharmacy List</h2> 
         <div class="list_ph" th:each="pharma : ${pharmas}" >
         <div  class="list_ph1" >
     	    <hr>
@@ -100,7 +99,7 @@
                         Branch Name:<b><span th:text="${br.BranchName}"></span></b><br>
                         City :<span th:text="${br.city}"></span><br>
                         Subcity :<span th:text="${br.subcity}"></span><br>
-                        Kebele :<span th:text="${br.kebele}"></span><br>
+                        Kebele :<span th:text="${br.subcity}"></span><br>
                 </div>
             </div>
             <hr class="brs" >
