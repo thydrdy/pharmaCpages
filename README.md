@@ -1,4 +1,7 @@
-Database name = 'pharma_db'
+This project is done for school semester project in webProgramming I course using Spring framework
 
-lets remove the images temporarily since it is making the pulling and every commit a little bit difficult.
-we can add it back later
+our kanban borad on trello....
+
+https://trello.com/b/Dw1bmBRN/kanban
+
+
