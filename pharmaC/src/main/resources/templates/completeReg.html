@@ -8,7 +8,7 @@
 			<meta name="author" content="">
 			<title> Search</title>
 			<!-- Bootstrap core CSS -->
-			<link href="../static/css/bootstrap.css" href="@{/css/bootstrap.css}" rel="stylesheet">
+			<link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
   </head>
 
   <body>
@@ -21,22 +21,21 @@
 						<div class="collapse navbar-collapse" id="navbarResponsive">
 							<ul class="navbar-nav ml-auto">
 								<li class="nav-item">
-									<a class="nav-link" href="about.html">About</a>
+									<a class="nav-link" th:href="@{/}" >Home</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="services.html">Services</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="contact.html">Contact</a>
+									<a class="nav-link" th:href="@{/search/spe}">Search</a>
 								</li>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									My Profile
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-										<a class="dropdown-item" href="#"> Pharmacy </a>
-										<a class="dropdown-item" href="#"> User</a>
-										<a class="dropdown-item" href="#"> Just in case</a>
+										<a class="dropdown-item" th:href="@{/}"> Home </a>
+										<a class="dropdown-item" th:href="@{/}"> User</a>
+										<a class="dropdown-item" href="#"> 	<form method="POST" th:action="@{/logout}">
+		<input type="submit" value="Logout"/>
+	</form></a>
 											</div>
 								</li>
 									</div>
@@ -94,7 +93,6 @@
 		<div class="text-center text-success">You are almost done!!<br><div style="font-size: 0.8rem" class="text-warning">(Just Confirmation)</div></div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-4 mx-3">
-				ID :<span th:text="${pharmacy.pharmacy_license_id}"></span><br>
 				Name :<span th:text="${pharmacy.pharmacyName}"></span><br>
 				Email :<span th:text="${pharmacy.office_email}"></span><br>
 				Phone Nmuber :<span th:text="${pharmacy.office_phone_no}"></span><br>
@@ -103,8 +101,8 @@
 		</div>
 
 		<div class="row my-3">
+									<br><div class="text-info h6"> List of branches</div>
 							<div class="col-6 mx-3" th:each="br : ${pharmacy.pharmacBranches}">
-									<div class="text-info h6"> List of branches</div>
 											<p>Branch ID :<span th:text="${br.branch_no}"></span></p>
 											<p>Branch Name :<span th:text="${br.BranchName}"></span></p>
 											<p>Branch City :<span th:text="${br.city}"></span></p>
@@ -115,8 +113,9 @@
 		</div>
 
 		<div class="row my-3">
+		
+					<div class="text-info h6"> List of drugs</div><br>
 			<div class="col-6 mx-3" th:each="dr : ${pharmacy.pharmacDrugs}">
-					<div class="text-info h6"> List of drugs</div>
 					drug_id     :<span th:text="${dr.drug_id}"></span><br>
 					Name        :<span th:text="${dr.Name}"></span><br>
 					Description :<span th:text="${dr.Description}"></span><br>
@@ -129,6 +128,8 @@
 	</div>
 
 	<div class="row my-3">
+	
+						
 				<div class="col-6 mx-3" th:each="path : ${pharmacy.profileImages}">
 						<div class="text-info h6"> List of profile pictures</div>
 						<img alt="imgs"  th:src="@{'/uploads/'+${path}}" width="20%">

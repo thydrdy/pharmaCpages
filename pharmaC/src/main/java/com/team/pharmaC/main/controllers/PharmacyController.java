@@ -59,7 +59,7 @@ public class PharmacyController {
 		}
 		pharmaRepo.save(pharmacy);
 		sessionStatus.setComplete();
-		return "completeReg";
+		return "index";
 	}
 	
 	@GetMapping("/complete")

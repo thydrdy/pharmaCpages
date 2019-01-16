@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html >
   <head >
-    <title>Error Page!</title>
-  </head>
-	<body>
-		<h1>Something Went Wrong!</h1>
+		<title>Error Page!</title>
+		<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title> Search</title>
+
+	<!-- Bootstrap core CSS -->
+		<link href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" rel="stylesheet">
+		 <script type="text/javascript"  src="../static/js/jquery.min.js"  th:src="@{/js/jquery.min.js}" ></script>
+    	<script type="text/javascript" src="../static/js/bootstrap.js" th:src="@{/js/bootstrap.js}" ></script>
+    	<style type="text/css">
+			body{
+				background: url{[[@{/images/err.jpg}]]} no-repeat center 	
+			}    	
+    	</style>
+</head>
+	<body style="background-image: url(/static/images/err.jpg)">
+		<!-- <h1>Something Went Wrong!</h1>
 		<h2> Please Return to The Home Page</h2>
-		<a href="/"> Go to home page</a>
+		<a href="/"> Go to home page</a> -->
+
+		<div class="container-fluid">
+			<div class="row" style="position:relative ; top:50vh">
+				<div class="col-12">
+					<p class="text-danger text-center display-3">Oops There is an error!!!</p>
+					<p class="text-warning text-center"> <a  style="font-size: 1.5rem ; font-weight: 0.8" href="/"> Go to home page</a></p>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
