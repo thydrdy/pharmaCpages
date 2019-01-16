@@ -1,4 +1,5 @@
-Database name = 'pharma_db'
+our kanban borad on trello....
 
-lets remove the images temporarily since it is making the pulling and every commit a little bit difficult.
-we can add it back later
+https://trello.com/b/Dw1bmBRN/kanban
+
+
