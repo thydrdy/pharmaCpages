@@ -48,7 +48,7 @@ public class SearchController {
 	@GetMapping("/spe")
 	public String searchForm(Model model) { 
 		
-		  return "search";    
+		  return "search_2";    
 	}
 	@PostMapping("/spe")
 	public String processSearch(@ModelAttribute(name="searchObj") SearchInfo info,@ModelAttribute(name="pharmas") List<Pharmacy> pharmas,Model model) {
@@ -59,7 +59,7 @@ public class SearchController {
 		System.out.println(pharmas.size()+" results found");
 		model.addAttribute("result",pharmas.size()+" results found.");
 		model.addAttribute("pharmas", pharmas);
-		return "search";
+		return "search_2";
 	} 
 	
 	@GetMapping("/all")

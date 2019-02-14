@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -31,10 +34,20 @@ public class MainEmployee implements UserDetails  {//extends Employee
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private  long   id;
-	private  final long license_id;
+	@NotBlank
+	@Digits(integer=10,message="Please Input A Valid Medical Licese Id", fraction = 0)
+	private  final String license_id;
+	@NotBlank
+	@Size(min=5,message=" Username Should Be At  Least 5 character long")
 	private  final String username;
+	@NotBlank
+	@Size(min=8,message="Password Should be At least 8 character long")
 	private  final String password;
+	@NotBlank
+	@Size(min=5,message=" First name Should Be At  Least 5 character long")
 	private  final String firstname;
+	@NotBlank
+	@Size(min=5,message=" Last name Should Be At  Least 5 character long")
 	private  final String lastname;  //private  final String authorization_level;
 	
 

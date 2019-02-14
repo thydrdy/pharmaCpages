@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+
+
+        <div  class="list_ph1" >
+    	    <hr>
+            <div class="image" th:each="path : ${pharmaC.profileImages}" >
+                <img alt="imgs"  th:src="@{'/uploads/'+${path}}" width="200px" height="150px" >
+    	    </div>
+    	    <div class="pharma_profile">
+                <b>Name :<span th:text="${pharmaC.pharmacyName}"></span></b><br>
+    		    Email :<span th:text="${pharmaC.office_email}"></span><br>
+    		    Phone_no :<span th:text="${pharmaC.office_phone_no}"></span><br>
+    		    <div class="disc"> About Us....</div>
+    		    <div th:text="${pharmaC.Description}"></div>
+            </div>
+    	    <div> <b>list of branches</b></div>
+    	    <div th:each="br : ${pharmaC.pharmacBranches}" >
+                <div class="branch_profile">	
+                        Branch Name:<b><span th:text="${br.BranchName}"></span></b><br>
+                        City :<span th:text="${br.city}"></span><br>
+                        Subcity :<span th:text="${br.subcity}"></span><br>
+                        Kebele :<span th:text="${br.kebele}"></span><br>
+                </div>
+            </div>
+            <hr class="brs" >
+            </div>
+        
+        <div class="search">
+                <form class="signUpForm" action="#" th:action = "@{/Details/search}" th:object = "${searchObj}" method="POST">
+                  <div> Search <input type="text" class="control" th:field="*{queryValue}"/>
+                   <button type="submit" class="btn btn-warning">Search</button></div>
+                    <div class="stype">
+                        <span class="searchType" style="text-align:center;"><b>Sorting Types</b></span>
+                        <span class="searchType"> <input type="checkbox" th:field="*{byPrice}" />By Price</span>
+                        <span class="searchType"> <input type="checkbox" th:field="*{byEdate}" />By expiration_date</span>
+                        <span class="searchType"> <input type="checkbox" th:field="*{byAmount}" />By Availability</span>
+                    </div>
+                </form>
+                <div class="suggestion">
+                    suggestion
+                </div>
+        </div>
+        
+        <div th:each="dr : ${pharmaC.pharmacDrugs}" >
+                <div class="branch_profile">	
+                        Name:<b><span th:text="${dr.Name}"></span></b><br>
+                        Description :<span th:text="${dr.Description}"></span><br>
+                        expiration date :<span th:text="${dr.expiration_date}"></span><br>
+                        price :<span th:text="${dr.price}"></span><br>
+                </div>
+        </div>
+</body>
+</html>

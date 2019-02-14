@@ -29,7 +29,7 @@ public class PharmacyControllerTest {
 	    
 	      .andExpect(status().isOk())  
 	      
-	      .andExpect(view().name("pharmacy")) 
+	      .andExpect(view().name("index")) 
 	      
 	      .andExpect(content().string(    
 	          containsString(" ")));  

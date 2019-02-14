@@ -27,7 +27,7 @@ public class Pharmacy implements Serializable{
 
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
-  private long 	 pharmacy_license_id; 
+  private long  pharmacy_license_id; 
  
   @NotBlank(message="*Pharmacy name is required")
   @Size(min=2, message="**Name must be at least 2 characters long")

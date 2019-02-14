@@ -50,21 +50,39 @@ xmlns:th="http://www.thymeleaf.org">
 		<form method="POST" th:action="@{/user_register}" id="registerForm"  th:object = "${regEmp}" >
 			<label  for="licese_id" >License id: </label>
 			<input type="text"  th:field="*{license_id}" name="username"/><br/>
-			
+			 <span class="text-danger"
+      		th:if="${#fields.hasErrors('license_id')}"
+      		th:errors="*{license_id}">Name Error</span>
+      		
 			<label for="fullname">First name: </label>
 			<input type="text"  th:field="*{firstname}" name="firstname"/><br/>
-			
+			 <span class="text-danger"
+      		th:if="${#fields.hasErrors('firstname')}"
+      		th:errors="*{firstname}">Name Error</span>
+      		
 			<label for="street">Last Name: </label>
 			<input type="text"  th:field="*{lastname}" name="lastname"/><br/>
-			
+			 <span class="text-danger"
+      		th:if="${#fields.hasErrors('lastname')}"
+      		th:errors="*{lastname}">Name Error</span>
+      		
 			<label for="username">Username: </label>
 			<input type="text"  th:field="*{username}" name="username"/><br/>
-			
+			 <span class="text-danger"
+      		th:if="${#fields.hasErrors('username')}"
+      		th:errors="*{username}">Name Error</span>
+      		
 			<label for="password">Password: </label>
 			<input type="password"  th:field="*{password}" name="password"/><br/>
-			
+			 <span class="text-danger"
+      		th:if="${#fields.hasErrors('password')}"
+      		th:errors="*{password}">Name Error</span>
+      		
 			<label for="confirm">Confirm password: </label>
 			<input type="password"  name="confirm"/><br/>
+			 <span class="text-danger"
+      		th:if="${#fields.hasErrors('cpassword')}"
+      		th:errors="*{cpassword}">Name Error</span>
 			
 			<input type="submit" value="Register"/>
 		</form> -->
@@ -77,28 +95,48 @@ xmlns:th="http://www.thymeleaf.org">
 							
 						<form method="POST" th:action="@{/user_register}" id="registerForm"  th:object = "${regEmp}" >
 							<label  for="licese_id" hidden >License id: </label>
-
+							 
+      		
 							<div class="text-info d-block">License ID</div>
 							<input class="form-control my-1" type="text"  th:field="*{license_id}" name="username" placeholder="License ID"/>
+							<span class="text-danger"
+      							th:if="${#fields.hasErrors('license_id')}"
+      							th:errors="*{license_id}">Name Error</span>
+      							
 							<div class="text-info d-block">Name</div>
 							<div class="form-row my-2">
 									<label for="fullname" hidden>First name: </label>
 									<input class="form-control col mx-1" type="text"  th:field="*{firstname}" name="firstname" placeholder="First Name"/>
-									
+									 <span class="text-danger"
+      									th:if="${#fields.hasErrors('firstname')}"
+      									th:errors="*{firstname}">Name Error</span>
+      		
 									<label for="street" hidden>Last Name: </label>
 									<input class="form-control col mx-1" type="text"  th:field="*{lastname}" name="lastname" placeholder="Last Name"/>
-									
+									<span class="text-danger"
+      									th:if="${#fields.hasErrors('lastname')}"
+      									th:errors="*{lastname}">Name Error</span>
 							</div>
 							<div class="text-info d-block">User Name</div>
 							<label for="username" hidden>Username: </label>
 							<input class="form-control" type="text"  th:field="*{username}" name="username" placeholder="User Name"/>
+							 <span class="text-danger"
+      							th:if="${#fields.hasErrors('username')}"
+      							th:errors="*{username}">Name Error</span>
+      		
 							<div class="text-info d-block">Credientials</div>
 							<div class="form-row my-2">
 									<label for="password" hidden>Password: </label>
 									<input class="form-control col mx-1" type="password"  th:field="*{password}" name="password" placeholder="Password"/><br/>
-									
+									<span class="text-danger"
+      									th:if="${#fields.hasErrors('password')}"
+      									th:errors="*{password}">Name Error</span>
+      		
 									<label for="confirm" hidden>Confirm password: </label>
-									<input class="form-control col mx-1" type="password"  name="confirm" placeholder="Conf"/>
+									<input class="form-control col mx-1" type="password"  name="confirm" placeholder="Confirm Your Password"/>
+									<span class="text-danger"
+      									th:if="${#fields.hasErrors('password')}"
+      									th:errors="*{password}">Name Error</span>
 							</div>
 							
 							
