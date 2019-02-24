@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head th:replace="menu :: head" >
+</head>
+<body th:style="'background-image:url('+@{/images/b.jpeg}+');'">
+	<nav   th:replace="menu :: headmenu" ></nav>		
+
+         <div class="container-fluid">
+        	<div class="row">
+        	<div class="col-sm-9">
+        		 <div  class="list_ph1" >
+    	 
+    	    
+    	    <div class="row">
+    	    	<div class=" col-3 p-1 text-center" th:each="path : ${pharmaC.profileImages}" >
+				<img class="img rounded " alt="imgs"  th:src="@{'/uploads/'+${path}}" width="100%" height="150px"
+				style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);" >
+    	    </div>
+    	    </div>
+    	    
+            
+    	    <div class="pharma_profile py-3">
+                <span class="display-4 text-warning" th:text="${pharmaC.pharmacyName}"></span>
+                <span class="display-4 text-warning" ><img width="50px" th:src="@{/uploads/star.png}"/><span th:text="${pharmaC.ratingObject.rate_no}"></span>/5</span><br>
+    		    <i class="fa fa-envelope-o fa-2x px-2"></i><span style="font-size:1.8rem" th:text="${pharmaC.office_email}"></span><br>
+    		     <i class="fa fa-phone fa-2x px-2"></i><span style="font-size:1.8rem" th:text="${pharmaC.office_phone_no}"></span><br>
+    		    <div style="font-size:1.6rem" th:text="${pharmaC.Description}"></div>
+    		     <i></i><span class="text-info" style="">Currently <span th:text="${pharmaC.ratingObject.no_of_viewers}"></span> Peoples have visited You'r Site!</span><br>
+            </div>
+    	    
+            
+            <div class="card my-4" style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);">
+                        <div class="p-2"> <i class="fa fa-sitemap"></i> List of branches <span class="float-right">
+                        <a class="p-2 text-success" th:href="@{/employee_page/EmpAccessBrAdd}"><i class="fa fa-plus p-2"></i>Add A Branch </a></span></div>
+                        <div th:each="br : ${pharmaC.pharmacBranches}" >
+                        <div style="font-size: 1.5rem" class="card-header"><i class="fa fa-university" style="font-size: 1rem"></i><span th:text="${br.BranchName}"></div></h5>
+                                  <div class="card-body mb-2">
+                                    <!-- <div class="row">
+                                      <div class="col-lg-6"> -->
+                                        <ul class="list-unstyled mb-0" id="sortby_block">
+                                          <li style="font-size:1.2rem">
+                                              City :<span th:text="${br.city}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                                Subcity :<span th:text="${br.subcity}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                              Kebele :<span th:text="${br.kebele}"></span><br>
+                                          </li>
+                                        </ul>
+                                        
+                                         <div>
+                                         	<a class="text-info float-left"  th:href="@{/employee_page/EmpAccessBrEdit(id=${br.branch_no})}"><i class="fa fa-edit"></i> Edit Branch</a>
+                                         </div>
+                                         <div>
+                                         	<a class="text-danger float-right" th:href="@{/employee_page/EmpAccessBrDel(id=${br.branch_no})}"><i class="fa fa-trash"></i>  Delete Branch </a>
+                                         </div>
+                                  </div>
+                                </div>
+                        </div>
+            </div>
+        
+        
+       
+        	
+        	<div class="row w-75 m-3 align-content-center" th:if="${#lists.size(pharmaC.pharmacyComment)}>0">
+        		<p class="display-4 mx-3"><i class="fa fa-comments-o"></i>Comments</p>
+	        	<div class="col-12" th:each="comment : ${pharmacyComments}" style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);background:rgba(113, 114, 114 , 0.2);border:1px rgb(113, 114, 114) solid ; border-radius:3px">
+	        		<div class="mb-3">
+        		<div><b><span class="float-left" th:text="${comment.userName}"></span></b>
+        		<a class="text-danger float-right"  th:href="@{/employee_page/DelComment(id=${comment.id})}"><i class="fa fa-trash"></i> </a>
+        		</div><br>
+	        	
+	        	<div class="mb-1">
+	        		<span   th:text="${comment.comment}"></span>
+	        	</div>
+	        	<span class="float-left text-info" style="font-size: 1.2rem"  ><i class="fa fa-envelope-o px-1"></i><span th:text="${comment.email}"></span></span>
+	        	<span class="float-right text-info" style="font-size: 1.2rem"   ><i class="fa fa-clock-o px-1"></i><span th:text="${comment.dateCommented}"></span></span>
+	        	<br>
+        	</div>
+	        	</div>
+	        </div>
+        	
+        	</div>
+        	
+        	<div class="col-sm-3">
+        		<div class="search">
+                <form class="signUpForm" action="#" th:action = "@{/employee_page/search/emp}" th:object = "${searchObj}" method="POST">
+                  <div > Search <input type="text" class="form-control" th:field="*{queryValue}" 
+                  style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);"/>
+                   <button type="submit" class="btn btn-warning float-right my-1 p-2"
+                   style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);"><i class="fa fa-search"></i>Search</button></div><br><br>
+                    <div class="card my-4" style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);" >
+                        <a data-toggle="collapse" href="#searchby_block" aria-expanded="fasle" aria-controls="test-block">
+                        <h5 class="card-header">Sorting Types <i class="fa fa-sort-amount-asc px-2"></i></h5></a>
+                          <div class="card-body"  id="searchby_block">
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <ul class="list-unstyled mb-0">
+                                  <li>
+                                    <span class="searchType"> <input class="mx-1" type="checkbox" th:field="*{byPrice}" />By Price</span>
+                                  </li>
+                                  <li>
+                                    <span class="searchType"> <input class="mx-1" type="checkbox" th:field="*{byEdate}" />By Expiration date</span>
+                                  </li>
+                                  <li>
+                                    <span class="searchType"> <input class="mx-1" type="checkbox" th:field="*{byAmount}" />By Availability</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                </form>
+               
+                
+             
+        
+        
+        
+        <div class="card my-4" style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);">
+                        <div class="p-2"> <i class="fa fa-navicon"></i><b>List of Drugs</b> <span class="float-right">
+                        <a class="p-2 text-success" th:href="@{/employee_page/EmpAccessDrAdd}"><i class="fa fa-plus p-2"></i>Add A Drug </a></span></div>
+                        <div th:each="dr : ${pharmaC.pharmacDrugs}" >
+                                  <div class="card-body">
+                                    <!-- <div class="row">
+                                      <div class="col-lg-6"> -->
+                                        <ul class="list-unstyled mb-0" id="sortby_block">
+                                          <li style="font-size:1.5rem">
+                                              <i class="fa fa-medkit mx-2"></i><span th:text="${dr.Name}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                              <i class="fa fa-info-circle mx-2"></i> Description :<span th:text="${dr.Description}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                             <i class="fa fa-calendar-check-o mx-2"></i>Expiration date :<span th:text="${dr.expiration_date}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                              <i class="fa fa-dollar mx-2"></i>Price :<span th:text="${dr.price}"></span><br>
+                                          </li>
+                                        </ul>
+                                        
+                                        <div>
+                                         	<a class="text-info float-left"  th:href="@{/employee_page/EmpAccessDrugEdit(id=${dr.drug_id})}"><i class="fa fa-edit"></i> Edit Drug</a>
+                                         </div>
+                                         <div>
+                                         	<a class="text-danger float-right" th:href="@{/employee_page/EmpAccessDrugDel(id=${dr.drug_id})}"><i class="fa fa-trash"></i>  Delete Drug </a>
+                                         </div>
+                                  </div>
+                                </div>
+                        </div>
+        
+        
+        
+        </div>
+        	</div>
+        	
+        	<!--  --COMMMENT SECTION---  -->
+        	<!--  <div  class=" col-sm-9" th:if="${#lists.size(pharmaC.pharmacyComment)}>0">
+        		<hr>
+	        	<span  class=" pl-5" > What Peoples Say About You'r Pharmacy!</span>
+	        	<div th:each="comment : ${pharmacyComments}"   style="background:rgba(0,0,0,0.1)">
+	        		<div style="font-size: 1.5rem" class="card-header">
+                            <div class="card-body">
+                                  <ul class="list-unstyled mb-0" id="sortby_block">
+                                    <li style="font-size:1.2rem">
+                                        Name :<span th:text="${comment.userName}"></span><br>
+                                    </li>
+                                    <li style="font-size:1.2rem">
+                                        Email :<span th:text="${comment.email}"></span><br>
+                                    </li>
+                                    <li style="font-size:1.2rem">
+                                        Comment :<span th:text="${comment.comment}"></span><br>
+                                    </li>
+                                    <li style="font-size:1.2rem">
+                                        Date :<span th:text="${comment.dateCommented}"></span><br>
+                                    </li>
+                                  </ul>
+                           </div>
+                     </div>
+                     <div>
+                          <a class="text-danger" th:href="@{/employee_page/DelComment(id=${comment.id})}"><i class="fa fa-trash"></i>  Delete Comment </a>
+                     </div>
+                 </div>
+	        </div>-->
+        	
+        	</div>
+        </div>
+        
+         <script type="text/javascript"  src="../js/jquery.min.js"  th:src="@{/js/jquery.min.js}" ></script>
+		   <script type="text/javascript" src="../js/bootstrap.js" th:src="@{/js/bootstrap.js}" ></script>
+</body>
+</html>

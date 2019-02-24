@@ -1,0 +1,78 @@
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+		<head th:replace="menu :: head" >
+
+</head>
+	
+	
+	
+<body class="signUpPage" th:style="'background-image:url('+@{/images/b.jpeg}+');'">
+ <nav   th:replace="menu :: headmenu" ></nav>	
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-8">
+        <form class="signUpForm" action="#" th:action = "@{/pharmacy/cont}" th:object = "${pharmacy}" method="POST">
+          <div class="form-group">
+            <div class="row justify-content-between py-3">
+                <span><a th:href="@{/pharmacy}" class="text-warning" >Create Your Pharamcy Profile </a></span><span><a th:href="@{/location}" class="text-warning" >Go to Location </a></span>
+            </div>
+            <label for="Pharmacy name">Pharmacy Name</label>
+              <input type="text" class="form-control" th:value="${pharmacyName}" th:field="*{pharmacyName}"/>
+               <span class="text-danger"
+                th:if="${#fields.hasErrors('pharmacyName')}"
+                th:errors="*{pharmacyName}">Name Error</span>
+           
+          </div>
+      
+      
+          <div class="form-group">
+                <label for="Pharmacy name">office email</label>
+                <input type="email" th:value="${office_email}" class="form-control" th:field="*{office_email}"/>
+                 <span class="text-danger"
+                th:if="${#fields.hasErrors('office_email')}"
+                th:errors="*{office_email}">Name Error</span>
+           
+          </div>
+      
+          <div class="form-group">
+                <label for="Pharmacy name">Office Phone No</label>
+                <input type="text" class="form-control"  th:value="${office_phone_no}"  th:field="*{office_phone_no}">
+                 <span class="text-danger"
+                th:if="${#fields.hasErrors('office_phone_no')}"
+                th:errors="*{office_phone_no}">Name Error</span>
+           
+          </div>
+          
+          <div class="form-group">
+                <label for="Pharmacy name">Description</label>
+                <input type="text" class="form-control"  th:value="${Description}" th:field="*{Description}"/>
+                 <span class="text-danger"
+                th:if="${#fields.hasErrors('Description')}"
+                th:errors="*{Description}">Name Error</span>
+           
+          </div>
+      
+      
+          <button type="submit" class="btn btn-warning float-right">Continue</button>
+      
+        </form>
+    </div>
+  </div>
+  <div class="footer row justify-content-center my-3">
+    <div class="col-6">
+      <p class="text-center">&copy;PharmaC 2019</p>
+    </div>
+  </div>
+</div>
+
+<!-- <hr/> -->
+
+ 
+    <script type="text/javascript"  src="../static/js/jquery.min.js"  th:src="@{/js/jquery.min.js}" ></script>
+    <script type="text/javascript" src="../static/js/bootstrap.js" th:src="@{/js/bootstrap.js}" ></script>
+    </body>
+
+</html>

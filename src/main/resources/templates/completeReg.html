@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="menu :: head" >
+
+</head>
+  <body th:style="'background-image:url('+@{/images/b.jpeg}+');'">
+			<nav   th:replace="menu :: headmenu" ></nav>		
+
+	<div class="container-fluid">
+		<div class="text-center text-success">You are almost done!!<br><div style="font-size: 0.8rem" class="text-warning">(Just Confirmation)</div></div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 mx-3">
+				Name :<span th:text="${pharmacy.pharmacyName}"></span><br>
+				Email :<span th:text="${pharmacy.office_email}"></span><br>
+				Phone Nmuber :<span th:text="${pharmacy.office_phone_no}"></span><br>
+				Phone Number :<span th:text="${pharmacy.Description}"></span><br>
+			</div>
+		</div>
+
+		<div class="row my-3">
+									<br><div class="text-info h6"> List of branches</div>
+							<div class="col-6 mx-3" th:each="br : ${pharmacy.pharmacBranches}">
+											<p>Branch ID :<span th:text="${br.branch_no}"></span></p>
+											<p>Branch Name :<span th:text="${br.BranchName}"></span></p>
+											<p>Branch City :<span th:text="${br.city}"></span></p>
+											<p>Branch Kubcity :<span th:text="${br.subcity}"></span></p>
+											<p>Branch Kebele :<span th:text="${br.kebele}"></span></p>
+											<p>Branch Office Phone Number :<span th:text="${br.branch_office_phone_no}"></span></p>
+				</div>
+		</div>
+
+		<div class="row my-3">
+		
+					<div class="text-info h6"> List of drugs</div><br>
+			<div class="col-6 mx-3" th:each="dr : ${pharmacy.pharmacDrugs}">
+					drug_id     :<span th:text="${dr.drug_id}"></span><br>
+					Name        :<span th:text="${dr.Name}"></span><br>
+					Description :<span th:text="${dr.Description}"></span><br>
+					expiration_date     :<span th:text="${dr.expiration_date}"></span><br>
+					amount        :<span th:text="${dr.amount}"></span><br>
+					price            :<span th:text="${dr.price}"></span><br>
+					expiration_date  :<span th:text="${dr.expiration_date}"></span><br>
+					production_date  :<span th:text="${dr.production_date}"></span><br><br>
+				</div>
+	</div>
+
+	<div class="text-info h6"> List of profile pictures</div>	
+	<div class="row my-3">
+		
+				<span class="col-6 mx-3" th:each="path : ${pharmacy.profileImages}">
+					<img alt="imgs"  th:src="@{'/uploads/'+${path}}" width="50%" style="margin-bottom:3%;">
+					
+				</span>
+	</div>
+	<div class="row content-justify-center">
+		<div class="col-10">
+				<form class="signUpForm" action="#" th:action = "@{/pharmacy}" th:object = "${pharmacy}" method="POST">
+					<button type="submit" class="btn btn-warning float-right">Save</button>
+				</form>
+		</div>
+	</div>
+	<div class="footer row justify-content-center my-3">
+			<div class="col-6">
+				<p class="text-center">&copy;PharmaC 2019</p>
+			</div>
+		</div>
+	</div>
+	 <script type="text/javascript"  src="../static/js/jquery.min.js"  th:src="@{/js/jquery.min.js}" ></script>
+    <script type="text/javascript" src="../static/js/bootstrap.js" th:src="@{/js/bootstrap.js}" ></script>
+	</body>
+</html>

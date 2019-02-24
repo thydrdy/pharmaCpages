@@ -1,7 +1,2 @@
-This project is done for school semester project in webProgramming I course using Spring framework
-
-our kanban borad on trello....
-
-https://trello.com/b/Dw1bmBRN/kanban
-
-
+# Sample Spring Boot App
+This sample code is adopted from https://github.com/habuma/spring-in-action-5-samples for teaching Web Programming I course at www.aait.edu.et for Software Engineering and Information Technology students

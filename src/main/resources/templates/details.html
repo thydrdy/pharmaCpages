@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head th:replace="menu :: head" >
+
+</head>
+<body th:style="'background-image:url('+@{/images/b.jpeg}+');'">
+	<nav   th:replace="menu :: headmenu" ></nav>		
+
+         <div class="container-fluid">
+        	<div class="row">
+        	<div class="col-sm-9">
+        		 <div  class="list_ph1" >
+    	 
+    	    
+    	    <div class="row">
+    	    	<div class=" col-3 p-1 text-center" th:each="path : ${pharmaC.profileImages}" >
+				<img class="img rounded " alt="imgs"  th:src="@{'/uploads/'+${path}}" width="100%" height="150px"
+				style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);" >
+    	    </div>
+    	    </div>
+    	    
+            
+    	    <div class="pharma_profile py-3">
+                <span class="display-4 text-warning" th:text="${pharmaC.pharmacyName}"></span>
+                <span class="display-4 text-warning" ><img width="50px" th:src="@{/uploads/star.png}"/><span th:text="${pharmaC.ratingObject.rate_no}"></span>/5</span><br>
+    		    <i class="fa fa-envelope-o fa-2x px-2"></i><span style="font-size:1.8rem" th:text="${pharmaC.office_email}"></span><br>
+    		     <i class="fa fa-phone fa-2x px-2"></i><span style="font-size:1.8rem" th:text="${pharmaC.office_phone_no}"></span><br>
+    		    <div style="font-size:1.6rem" th:text="${pharmaC.Description}"></div>
+            </div>
+    	    
+            
+            <div class="card my-4" style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);">
+                        <div class="p-2"> <i class="fa fa-sitemap"></i> <b>List of branches</b></div>
+                        <div th:each="br : ${pharmaC.pharmacBranches}" >
+                        <div style="font-size: 1.5rem" class="card-header"><i class="fa fa-university" style="font-size: 1rem"></i><span th:text="${br.BranchName}"></div></h5>
+                                  <div class="card-body">
+                                    <!-- <div class="row">
+                                      <div class="col-lg-6"> -->
+                                        <ul class="list-unstyled mb-0" id="sortby_block">
+                                          <li style="font-size:1.2rem">
+                                              City :<span th:text="${br.city}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                                Subcity :<span th:text="${br.subcity}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                              Kebele :<span th:text="${br.kebele}"></span><br>
+                                          </li>
+                                        </ul>
+                                  </div>
+                                </div>
+                        </div>
+            </div>
+        
+        
+        
+        
+        
+        	</div>
+        	
+        	<div class="col-sm-3" >
+        		<div class="search">
+                <form class="signUpForm" action="#" th:action = "@{/Details/search}" th:object = "${searchObj}" method="POST">
+                  <div > Search <input type="text" class="form-control" th:field="*{queryValue}" 
+                  style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);"/>
+                   <button type="submit" class="btn btn-warning float-right my-1 p-2"
+                   style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);"><i class="fa fa-search"></i>Search</button></div><br><br>
+                    <div class="card my-4" style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);" >
+                        <a data-toggle="collapse" href="#searchby_block" aria-expanded="fasle" aria-controls="test-block">
+                        <h5 class="card-header">Sorting Types <i class="fa fa-sort-amount-asc px-2"></i></h5></a>
+                          <div class="card-body"  id="searchby_block">
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <ul class="list-unstyled mb-0">
+                                  <li>
+                                    <span class="searchType"> <input class="mx-1" type="checkbox" th:field="*{byPrice}" />By Price</span>
+                                  </li>
+                                  <li>
+                                    <span class="searchType"> <input class="mx-1 col-0 md-6" type="checkbox" th:field="*{byEdate}" />By expiration date</span>
+                                  </li>
+                                  <li>
+                                    <span class="searchType"> <input class="mx-1" type="checkbox" th:field="*{byAmount}" />By Availability</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                </form>
+               
+                
+             
+        
+        
+        
+        <div class="card my-4" style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);">
+                        <div class="p-2"> <i class="fa fa-navicon"></i> <b>List of Drugs</b></div>
+                        <div th:each="dr : ${pharmaCDrugs}" >
+                                  <div class="card-body">
+                                    <!-- <div class="row">
+                                      <div class="col-lg-6"> -->
+                                        <ul class="list-unstyled mb-0" id="sortby_block">
+                                          <li style="font-size:1.5rem">
+                                              <i class="fa fa-medkit mx-2"></i><span th:text="${dr.Name}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                              <i class="fa fa-info-circle mx-2"></i> Description :<span th:text="${dr.Description}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                             <i class="fa fa-calendar-check-o mx-2"></i>Expiration date :<span th:text="${dr.expiration_date}"></span><br>
+                                          </li>
+                                          <li style="font-size:1.2rem">
+                                              <i class="fa fa-dollar mx-2"></i>Price :<span th:text="${dr.price}"></span><br>
+                                          </li>
+                                        </ul>
+                                        <hr>
+                                  </div>
+                                </div>
+                        </div>
+        
+        
+        
+        </div>
+        	</div>
+        	
+        	<!--  --COMMMENT SECTION---  -->
+        	<div class=" col-sm-9" th:if="${#lists.size(pharmaC.pharmacyComment)}>0" >
+        		<hr>
+	        	<span class=" pl-5" > What Peoples Say About Us!</span>
+	        	<div th:each="comment : ${pharmacyComments}" style="background:rgba(0,0,0,0.1)">
+	        		<div style="font-size: 1.5rem" class="card-header"  >
+                            <div class="card-body" >
+                                  <ul class="list-unstyled mb-0" id="sortby_block">
+                                    <li style="font-size:1.2rem">
+                                        Name :<span th:text="${comment.userName}"></span><br>
+                                    </li>
+                                    <li style="font-size:1.2rem">
+                                        Email :<span th:text="${comment.email}"></span><br>
+                                    </li>
+                                    <li style="font-size:1.2rem">
+                                        Comment :<span th:text="${comment.comment}"></span><br>
+                                    </li>
+                                    <li style="font-size:1.2rem">
+                                        Date :<span th:text="${comment.dateCommented}"></span><br>
+                                    </li>
+                                  </ul>
+                           </div>
+                     </div>
+                 </div>
+	        </div>
+        	
+        	
+        	<div  class="card col-sm-7 my-4 ml-4 p-5" style="box-shadow: 0 2px 4px 0  rgba(0 , 0 , 0 , 0.19) , 0 6px 8px 0 rgba(0 , 0 , 0 , 0.2);">
+        		<span class="text-info" >Leave Your Comment Here!</span>
+        		<div th:if="${#lists.size(pharmaC.pharmacyComment)}==0"  > Be the first to Comment on this page!</div>
+        		
+        		
+	        	<!--   -----------Rating SECTION--------         -->
+	            <div>
+	            		<span class="text-warning" >Please, Rate Us!</span><br>
+	            		<a class="text-danger" th:href="@{/Details/rating(star=1)}" style="text-decoration: none;"><img th:src="@{/uploads/star.png}"/></a>
+	            		<a class="text-danger" th:href="@{/Details/rating(star=2)}" style="text-decoration: none;"><img th:src="@{/uploads/star.png}"/></a>
+	            		<a class="text-danger" th:href="@{/Details/rating(star=3)}" style="text-decoration: none;"><img th:src="@{/uploads/star.png}"/></a>
+	            		<a class="text-danger" th:href="@{/Details/rating(star=4)}" style="text-decoration: none;"><img th:src="@{/uploads/star.png}"/></a>
+	            		<a class="text-danger" th:href="@{/Details/rating(star=5)}" style="text-decoration: none;"><img th:src="@{/uploads/star.png}"/></a>
+	            		
+	            </div>
+	            <!--   -----------END OF Rating SECTION--------  -->
+            
+            
+            
+	        	<form class="signUpForm" th:action = "@{/Details/saveComment}" th:object = "${commentObj}" method="POST">
+
+	            <div class="form-group">
+	                  <label for="use name"> Name</label>
+	                  <input type="text" class="form-control" th:field="*{userName}"/><br>
+	                   <span  class="text-danger" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Name Error</span>
+	               
+	            </div>
+	          
+	            <div class="form-group">
+	                    <label for="Pharmacy name">Email</label>
+	                    <input type="text" class="form-control"  th:field="*{email}"/>
+	                     <span class="text-danger"
+	                    th:if="${#fields.hasErrors('email')}"
+	                    th:errors="*{email}">email Error</span>
+	               
+	                    
+	            </div>
+	          
+	              <div class="form-group">
+	                    <label for="Pharmacy name">Comment</label>
+	                    <textarea class="form-control" style="height:150px;"  th:field="*{comment}"></textarea>
+	                     <span class="text-danger"
+	                    th:if="${#fields.hasErrors('comment')}"
+	                    th:errors="*{comment}">Comment Error</span>
+	              </div>
+	              
+	              <button type="submit" class="btn btn-warning float-right">Submit</button>
+	          
+	            </form>
+            </div>
+            <!--   -----------END OF COMMENT SECTION--------  -->
+            
+            
+
+        	
+        	
+        	</div>
+        </div>
+        
+         <script type="text/javascript"  src="../js/jquery.min.js"  th:src="@{/js/jquery.min.js}" ></script>
+		   <script type="text/javascript" src="../js/bootstrap.js" th:src="@{/js/bootstrap.js}" ></script>
+</body>
+</html>
